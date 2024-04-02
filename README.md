@@ -1,0 +1,1 @@
+# dipti-django-practice-class
