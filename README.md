@@ -45,7 +45,7 @@ from django.shortcuts import HttpResponse
 def homePage(request):
     return HttpResponse("Welcome to our website")
 ```
-2. Then in `urls.py` file add `path` of homePage. you can import all fuction to write * (import *) insted of homePage
+2. Then in `urls.py` file add `path` of homePage. 
 ```bash
 from django.contrib import admin
 from django.urls import path
@@ -56,5 +56,123 @@ urlpatterns = [
     path('homePage/', homePage, name='homePage'),
 ]
 ```
+you can import all fuction to write * `from myProject.views import *` insted of homePage, <br>
+Also, you can use empty sting to display webpage at the root url ` path('', homePage, name='homePage'), `
 
 </details>
+
+<details>
+<summary>Day03-Render template & template language</summary>
+
+## Static file add in django
+> For template rendering or link html, css, js file to django project you need to add static file in django setting 
+1. Create `static` and `templates` folder, where manage.py is located.
+2. In `setting.py` file add STATICFILES_DIRS to tell where static folder will be located
+```
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/var/www/static/",
+]
+```
+3. Now add templates folder location in `manage.py` setting, where `'DIRS': [BASE_DIR, 'templates'],`
+```
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR, 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+```
+## Rendering Template
+1. Create a custom function,where return django render function in `views.py` for render html file 
+```
+from django.shortcuts import render
+
+def homePage(request):
+    return render(request, 'homePage.html')
+```
+2. Create URL path for that custom homePage function
+```
+from django.contrib import admin
+from django.urls import path
+from myProject.views import homePage
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('homePage/', homePage, name='homePage'),
+]
+```
+3. Now Create `homePage.html` template file under `templates folder`
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body>
+    <h1>Rendering template</h1>
+</body>
+</html>
+```
+>(html file name will be that custom homePage function argument, which is given `'homePage.html'`) 
+<hr>
+
+| Feature          | Description                                            | Example                                         |
+|------------------|---------------------------------------------------------|-------------------------------------------------|
+| Template Language | Special syntax for dynamic content within HTML templates  | `{{ user.username }}`                             |
+| Template Literals | A way to define strings in Python code (not Django specific) | `f"Hello, {name}!"`                               |
+| Template Engine  | Processes templates, parses DTL, generates final HTML     | (Behind the scenes) Renders templates based on DTL |
+<hr>
+
+## Template language
+1. For using template language, you need to pass contex or dictionary from `views.py`
+```
+from django.shortcuts import render
+
+def homePage(request):
+    myDictionary={
+        'key': 'value',
+        'name': 'Shamim',
+        'roll': '101'
+    }
+    return render(request, 'homePage.html', myDictionary)
+```
+2. check url path add or not in `urls.py` file, for that fuction 
+```
+from django.contrib import admin
+from django.urls import path
+from myProject.views import homePage
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('homePage/', homePage, name='homePage'),
+]
+```
+3. Now use template language in `homePage.html`
+```
+    <table id="customers">
+        <tr>
+          <th>Key</th>
+          <th>Name</th>
+          <th>Roll</th>
+        </tr>
+        <tr>
+          <td>{{key}} </td>
+          <td>{{name}}</td>
+          <td>{{roll}} </td>
+        </tr>
+      </table>
+```
+</details>
+
