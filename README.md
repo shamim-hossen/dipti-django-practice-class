@@ -132,6 +132,7 @@ urlpatterns = [
 |------------------|---------------------------------------------------------|-------------------------------------------------|
 | Template Language | Special syntax for dynamic content within HTML templates  | `{{ user.username }}`                             |
 | Template Literals | A way to define strings in Python code (not Django specific) | `f"Hello, {name}!"`                               |
+| Template Mastering | A technique for creating base templates with reusable elements (headers, footers) and extending them with child templates for specific content.    | `base.html` (base template), <br>`home.html` (extends base.html) |
 | Template Engine  | Processes templates, parses DTL, generates final HTML     | (Behind the scenes) Renders templates based on DTL |
 <hr>
 
