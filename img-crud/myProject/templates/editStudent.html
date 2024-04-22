@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            input[type=text], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            
+            input[type=submit] {
+              width: 100%;
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+            
+            input[type=submit]:hover {
+              background-color: #45a049;
+            }
+            
+            div {
+              border-radius: 5px;
+              background-color: #f2f2f2;
+              padding: 20px;
+            }
+
+            </style>
+    </head>
+    <body>
+        <h3 style="text-align: center;">Add student details</h3>
+
+<div class="container">
+  <form action="{% url 'updateStudent' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {% for i in student %}
+    <label for="fname">ID</label>
+    <input type="text" id="fname" value="{{i.id}}" name="myid"  placeholder="Your Name.." readonly>
+    
+    <label for="fname">Name</label>
+    <input type="text" id="fname" value="{{i.Name}}" name="fname" placeholder="Your Name..">
+
+    <label for="roll">Roll</label>
+    <input type="text" id="lname"  value="{{i.Roll}}"  name="roll" placeholder="Your Roll..">
+
+    <label for="dept">Department</label>
+    <input type="text" id="lname"  value="{{i.Dept}}"  name="dept" placeholder="Your Department..">
+
+    <label for="dept">Image</label>
+    <img src="/{{i.Img}}" width="50" alt="">
+
+    <label for="dept">Image</label>
+    <input type="file" id="lname"  value="{{i.Img}}"  name="img" placeholder="Your Department..">
+    {% endfor %}
+        
+
+    <input type="submit" value="update student">
+  </form>
+</div>
+    </body>
+    </html>
+{% endblock content %}
+    
