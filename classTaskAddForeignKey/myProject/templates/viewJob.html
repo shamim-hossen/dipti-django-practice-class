@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .job-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .job-card h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .job-card p {
+            margin: 5px 0;
+        }
+
+        .job-card button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .job-card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="job-card">
+            <h2>{{ job.JobTitle }}</h2>
+            <p><strong>Company Name:</strong> {{ job.CompanyName }}</p>
+            <p><strong>Address:</strong> {{ job.Address }}</p>
+            <p><strong>Company Description:</strong> {{ job.CompanyDescription }}</p>
+            <p><strong>Job Description:</strong> {{ job.JobDescription }}</p>
+            <p><strong>Qualification:</strong> {{ job.Qualification }}</p>
+            <p><strong>Salary Information:</strong> {{ job.SalaryInformation }}</p>
+            <p><strong>Deadline:</strong> {{ job.Deadline }}</p>
+            <p><strong>Designation:</strong> {{ job.Designation }}</p>
+            <p><strong>Experience:</strong> {{ job.Experience }}</p>
+            <button>Apply Now</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock content %}
+    

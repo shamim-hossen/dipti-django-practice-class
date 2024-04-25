@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.signup-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="email"],
+.signup-form select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.signup-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.signup-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form action="{% url 'signUp' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="fname" placeholder="First Name" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="lname" placeholder="Last Name" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" name="propic" placeholder="Profile Picture" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" name="dob" placeholder="Date of Birth" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="cpassword" placeholder="Confirm Password" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="address" placeholder="Address" required="required">
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="blood_group" required="required">
+                        <option value="">Select User Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-control" name="user_type" required="required">
+                        <option value="">Select User Type</option>
+                        <option value="recruiter">Recruiter</option>
+                        <option value="jobseeker">JobSeeker</option>
+                    </select>
+                </div>
+                </div>
+
+                <a href="{% url 'signIn' %}">Already have an account</a>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

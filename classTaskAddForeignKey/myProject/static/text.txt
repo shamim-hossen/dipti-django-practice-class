@@ -1,0 +1,25 @@
+## falsy value in python
+>Falsy Values: Certain values are considered falsy in Python, such as 
+<br>
+1.False, <br>
+2.None, <br>
+3.0, <br>
+4.0.0, <br>
+5."" (empty string), <br>
+6.[] (empty list), <br>
+7.{} (empty dictionary), <br>
+8.() (empty tuple), and <br>
+9.set() (empty set).<br>
+
+## topic
+<ol>
+<li>job tile</li>
+<li>company Namea</li>
+<li>Address</li>
+<li>company description</li>
+<li>job description</li>
+<li>qualification</li>
+<li>salary information</li>
+<li>designation</li>
+<li>experience</li>
+</ol>

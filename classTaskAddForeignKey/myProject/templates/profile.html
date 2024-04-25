@@ -1,0 +1,87 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            margin-top: 50px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust as needed */
+    }
+
+        .circle {
+            width: 150px; /* Adjust size of circle */
+            height: 150px; /* Adjust size of circle */
+            border-radius: 50%; /* Make it a circle */
+            overflow: hidden; /* Hide overflowing content */
+
+            /* display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #000; */
+        }
+
+        .circle img {
+            width: 100%;
+            height: auto;
+            display: block;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h2>{{user.username}} Profile</h2>
+        </div>
+
+            <div class="circle">
+                <img src="/{{ user.ProfilePicture }}" alt="Your Image">
+            </div>
+
+        <div class="card-body">
+            <div class="row">
+                <!-- <div class="col-md-6">
+                    <img src="/{{ user.ProfilePicture }}" width="50" class="img-fluid" alt="Profile Picture">
+                </div> -->
+
+                <div class="col-md-6">
+                    <p><strong>First Name:</strong> {{ user.Fname }}</p>
+                    <p><strong>Last Name:</strong> {{ user.Lname }}</p>
+                    <p><strong>Date of Birth:</strong> {{ user.DateOfBirth }}</p>
+                    <p><strong>Address:</strong> {{ user.Address }}</p>
+                    <p><strong>Blood Group:</strong> {{ user.get_BloodGroup_display }}</p>
+                    <p><strong>User Type:</strong> {{ user.get_UserType_display }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock content %}
+    
