@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="name">First Name:</label><br>
+        <input type="text" id="name" name="fname" required><br><br>
+        <label for="name">Last Name:</label><br>
+        <input type="text" id="name" name="lname" required><br><br>
+        <label for="name">User Name:</label><br>
+        <input type="text" id="name" name="username" required><br><br>
+    
+        <label for="username">Profile Picture:</label><br>
+        <input type="file" id="username" name="profile_picture" required><br><br>
+        <label for="date_of_birth">Date of Birth:</label><br>
+        <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+        
+    
+        <label for="usertype">Blood Group:</label><br>
+        <select id="usertype" name="blood_group" required>
+        <option value="" disabled selected>Please select an option</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+    </select><br><br>
+    
+        <label for="email">Address:</label><br>
+        <input type="text" id="email" name="address" required><br><br>
+    
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+    
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+    
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+    
+        <label for="usertype">User Type:</label><br>
+        <select id="usertype" name="usertype" required>
+            <option value="" disabled selected>Please select an option</option>
+        <option value="seeker">Job Seeker</option>
+        <option value="recruiter">Job Recruiter</option>
+        </select><br><br>
+        <a href="{% url 'signin' %}">Already have an account</a><br><br>
+        <input type="submit" value="Sign Up">
+    </form>
+{% endblock content %}
+    
