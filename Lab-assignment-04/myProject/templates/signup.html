@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+h1{
+    text-align: center;
+}
+</style>
+<body>
+    <h1>Sign-up page</h1>
+<div>
+  <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <label for="fname">User Name</label>
+    <input type="text" id="fname" name="username" placeholder="Your UserName..">
+    
+    <label for="fname">Email</label>
+    <input type="text" id="fname" name="email" placeholder="Your Email..">
+    
+    <label for="fname">Password</label>
+    <input type="text" id="fname" name="password" placeholder="Your Password..">
+    
+    <label for="fname">Confirm Password</label>
+    <input type="text" id="fname" name="confirm_password" placeholder="Your Password..">
+    
+    <label for="country">Gender</label>
+    <select id="country" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <label for="fname">Age</label>
+    <input type="text" id="fname" name="age" placeholder="Your Age..">
+    
+    <label for="fname">City</label>
+    <input type="text" id="fname" name="city" placeholder="Your City..">
+    
+    <label for="country">Country</label>
+    <select id="country" name="country">
+        <option value="BD">Bangladesh</option>
+        <option value="IN">India</option>
+        <option value="PK">Pakistan</option>
+    </select>
+
+    <label for="country">User Type</label>
+    <select id="country" name="usertype">
+        <option value="chef">Chef</option>
+        <option value="viewer">Viewer</option>
+    </select>
+  
+
+
+    <a href="{% url 'signin' %}">Already have an account</a>
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
+
+

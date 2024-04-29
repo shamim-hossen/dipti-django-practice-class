@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<form action="{% url 'addrecipe' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="RecipeTitle">Recipe Title:</label><br>
+    <input type="text" id="RecipeTitle" name="RecipeTitle" required><br>
+  
+    <label for="Ingredients">Ingredients:</label><br>
+    <textarea id="Ingredients" name="Ingredients" required></textarea><br>
+  
+    <label for="Instructing">Instructions:</label><br>
+    <textarea id="Instructing" name="Instructing" required></textarea><br>
+  
+    <label for="PreparationTime">Preparation Time:</label><br>
+    <input type="text" id="PreparationTime" name="PreparationTime" required><br>
+  
+    <label for="CookingTime">Cooking Time:</label><br>
+    <input type="text" id="CookingTime" name="CookingTime" required><br>
+  
+    <label for="TotalTime">Total Time:</label><br>
+    <input type="text" id="TotalTime" name="TotalTime" required><br>
+  
+    <label for="DifficultyLevel">Difficulty Level:</label><br>
+    <select id="DifficultyLevel" name="DifficultyLevel" required>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select><br>
+  
+    <label for="NutritionalInformation">Nutritional Information:</label><br>
+    <input type="text" id="NutritionalInformation" name="NutritionalInformation" required><br>
+  
+    <label for="SampleRecepeImage">Recipe Image:</label><br>
+    <input type="file" id="SampleRecepeImage" name="SampleRecepeImage" accept="image/*" required><br>
+  
+    <label for="RecipeCategory">Recipe Category:</label><br>
+    <select id="RecipeCategory" name="RecipeCategory" required>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+    </select><br>
+  
+    <label for="Tags">Tags:</label><br>
+    <select id="Tags" name="Tags" required>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="non-vegetarian">Non-vegetarian</option>
+    </select><br>
+  
+    <label for="TotalCalories">Total Calories:</label><br>
+    <input type="text" id="TotalCalories" name="TotalCalories" required><br>
+  
+    <button type="submit">Submit</button>
+  </form>
+  
+{% endblock content %}
+    

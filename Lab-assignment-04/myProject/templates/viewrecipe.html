@@ -1,0 +1,117 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #customers {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+			padding-top: 12px;
+			padding-bottom: 12px;
+			text-align: left;
+			background-color: #04AA6D;
+			color: white;
+            }
+            </style>
+    </head>
+    <body>
+        <!-- <h1 style="text-align: center;">Dashboard</h1> -->
+
+        <div class="card">
+            <h1>welcome {{user}}</h1>
+            <h1>usertype: {{user.UserType}} </h1>
+        
+
+            
+
+            {% if request.user.UserType == 'chef' %}
+            <table id="customers">
+                <tr>
+                <th>Recipe Title</th>
+                <th>Ingredients</th>
+                <th>Instructions</th>
+                <th>Preparation Time</th>
+                <th>Cooking Time</th>
+                <th>Total Time</th>
+                <th>Difficulty Level</th>
+                <th>Action</th>
+                </tr>
+            {% for i in recipe %}
+                <tr>
+                    <td> {{i.RecipeTitle}} </td>
+                    <td> {{i.Ingredients}} </td>
+                    <td> {{i.Instructing}} </td>
+                    <td> {{i.PreparationTime}} </td>
+                    <td> {{i.CookingTime}} </td>
+                    <td> {{i.TotalTime}} </td>
+                    <td> {{i.DifficultyLevel}} </td>
+                    <td> 
+                        <a href="{% url 'deleterecipe' i.id %}">Delete</a>    
+                        <a href="{% url 'editrecipe' i.id %}">Edit</a>    
+                        <a href="{% url 'viewfull' i.id %}">View</a>    
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
+        {% elif request.user.UserType == 'viewer' %}    
+        <table id="customers">
+            <tr>
+            <th>Recipe Title</th>
+            <th>Ingredients</th>
+            <th>Instructions</th>
+            <th>Preparation Time</th>
+            <th>Cooking Time</th>
+            <th>Total Time</th>
+            <th>Difficulty Level</th>
+            <th>Action</th>
+            </tr>
+        {% for i in recipe %}
+            <tr>
+                <td> {{i.RecipeTitle}} </td>
+                <td> {{i.Ingredients}} </td>
+                <td> {{i.Instructing}} </td>
+                <td> {{i.PreparationTime}} </td>
+                <td> {{i.CookingTime}} </td>
+                <td> {{i.TotalTime}} </td>
+                <td> {{i.DifficultyLevel}} </td>
+                <td>   
+                    <a href="{% url 'viewfull' i.id %}">View</a>    
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        {% endif %}
+
+
+                
+        
+        
+        
+            
+
+
+
+
+    </body>
+    </html>
+{% endblock content %}
+    

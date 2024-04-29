@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<form action="{% url 'updaterecipe' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+ 
+        <label for="RecipeTitle">ID</label><br>
+        <input type="text" id="RecipeTitle" value="{{recipe.id}}" name="myid" required readonly><br>
+    
+        <label for="RecipeTitle">Recipe Title:</label><br>
+        <input type="text" id="RecipeTitle" value="{{recipe.RecipeTitle}}" name="RecipeTitle" required><br>
+    
+        <label for="Ingredients">Ingredients:</label><br>
+        <textarea id="Ingredients" value="" name="Ingredients" required>{{recipe.Ingredients}}</textarea><br>
+    
+        <label for="Instructing">Instructions:</label><br>
+        <textarea id="Instructing" value="" name="Instructing" required>{{recipe.Instructing}}</textarea><br>
+    
+        <label for="PreparationTime">Preparation Time:</label><br>
+        <input type="text" id="PreparationTime" value="{{recipe.PreparationTime}}" name="PreparationTime" required><br>
+    
+        <label for="CookingTime">Cooking Time:</label><br>
+        <input type="text" id="CookingTime" value="{{recipe.CookingTime}}" name="CookingTime" required><br>
+    
+        <label for="TotalTime">Total Time:</label><br>
+        <input type="text" id="TotalTime" value="{{recipe.TotalTime}}" name="TotalTime" required><br>
+    
+        <label for="DifficultyLevel">Difficulty Level:</label><br>
+        <select id="DifficultyLevel" value="{{recipe.DifficultyLevel}}" name="DifficultyLevel" required>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        </select><br>
+    
+        <label for="NutritionalInformation">Nutritional Information:</label><br>
+        <input type="text" id="NutritionalInformation" value="{{recipe.NutrationalInformation}}" name="NutritionalInformation" required><br>
+    
+        <label for="SampleRecepeImage">current Recipe Image:</label><br>
+        <img src="/{{recipe.SampleRecepeImage}}" width="50" alt=""><br>
+
+        <input type="file" id="SampleRecepeImage" value="{{recipe.SampleRecepeImage}}" name="SampleRecepeImage" accept="image/*"><br>
+    
+        <label for="RecipeCategory">Recipe Category:</label><br>
+        <select id="RecipeCategory" value="{{recipe.RecipeCategory}}" name="RecipeCategory" required>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        </select><br>
+    
+        <label for="Tags">Tags:</label><br>
+        <select id="Tags" value="{{recipe.Tags}}" name="Tags" required>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="non-vegetarian">Non-vegetarian</option>
+        </select><br>
+    
+        <label for="TotalCalories">Total Calories:</label><br>
+        <input type="text" id="TotalCalories" value="{{recipe.TotalCalories}}" name="TotalCalories" required><br>
+
+    <button type="submit">Submit</button>
+  </form>
+  
+
+    
+{% endblock content %}
+    
