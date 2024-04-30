@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Add your CSS styling here */
+        .profile-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .profile-card h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .profile-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .profile-card hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card">
+    <h2>User Profile</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <hr>
+    <p><strong>Gender:</strong> {{ user.Gender }}</p>
+    <p><strong>Age:</strong> {{ user.Age }}</p>
+    <p><strong>City:</strong> {{ user.City }}</p>
+    <p><strong>Country:</strong> {{ user.Country }}</p>
+    <p><strong>User Type:</strong> {{ user.UserType }}</p>
+</div>
+
+</body>
+</html>
+
+{% endblock content %}
+    

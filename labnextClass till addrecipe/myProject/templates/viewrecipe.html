@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Card</title>
+    <style>
+        /* Add your CSS styling here */
+        .recipe-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe-card img {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 10px;
+        }
+        .recipe-card h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .recipe-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    {% if re %}
+        
+    {% endif %}
+        
+
+    {% for i in recipe %}
+        <div class="recipe-card">
+            <img src="/{{i.RecipeImage}}" width="50" height="50" alt="Recipe Image">
+            <h2>Recipe Title:{{i.Title}} </h2>
+            <p>Description: {{i.Description}} </p>
+            <p>Prep Time:{{i.PrepTime}} </p>
+            <p>Cook Time:{{i.CookTime}} </p>
+            <p>Servings:{{i.Servings}} </p>
+            <a href="">View Recipe</a>
+        </div>
+
+    {% endfor %}
+    
+
+
+</body>
+</html>
+
+
+{% endblock content %}
+    
