@@ -72,7 +72,7 @@ def addrecipe(request):
     if request.user.UserType=='chef':
         if request.method=='POST':
             title=request.POST.get('title')
-            image=request.POST.get('image')
+            image=request.FILES.get('image')
             description=request.POST.get('description')
             prep_time=request.POST.get('prep_time')
             cook_time=request.POST.get('cook_time')
@@ -94,3 +94,61 @@ def addrecipe(request):
     else:
         logout(request)
         return redirect('signin')
+    
+def editrecipe(request, myid):
+    recipe=RecipeModel.objects.filter(id=myid)
+    contex={
+        'recipe':recipe,
+    }
+    return render(request, 'editrecipe.html', contex)
+
+def updaterecipe(request):
+        if request.user.UserType=='chef':
+            if request.method=='POST':
+                myid=request.POST.get('myid')
+                title=request.POST.get('title')
+                image=request.FILES.get('image')
+                description=request.POST.get('description')
+                prep_time=request.POST.get('prep_time')
+                cook_time=request.POST.get('cook_time')
+                servings=request.POST.get('servings')
+                OwnerOfPost=request.user
+                
+                if image:
+                    recipe=RecipeModel(
+                        id=myid,
+                        Title=title,
+                        RecipeImage=image,
+                        Description=description,
+                        PrepTime=prep_time,
+                        CookTime=cook_time,
+                        Servings=servings,
+                        OwnerOfPost=OwnerOfPost,
+                    )
+                else:
+                    imgbyid=RecipeModel.objects.get(id=myid)
+                    recipe=RecipeModel(
+                        id=myid,
+                        Title=title,
+                        RecipeImage=imgbyid.RecipeImage,
+                        Description=description,
+                        PrepTime=prep_time,
+                        CookTime=cook_time,
+                        Servings=servings,
+                        OwnerOfPost=OwnerOfPost,
+                    )
+                    
+                recipe.save()
+                return redirect('viewrecipe')
+
+def deleterecipe(request, myid):
+    recipe=RecipeModel.objects.get(id=myid)
+    recipe.delete()
+    return redirect('viewrecipe')
+
+def viewfullrecipe(request, myid):
+    recipe=RecipeModel.objects.get(id=myid)
+    contex={
+        'recipe':recipe,
+    }
+    return render(request, 'viewfullrecipe.html',contex)

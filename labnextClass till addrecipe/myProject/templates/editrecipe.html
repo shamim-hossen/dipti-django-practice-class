@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Recipe Card</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Recipe Card</h2>
+        <form action="{% url 'updaterecipe' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% for i in recipe %}
+            <label for="title">ID:</label>
+            <input type="text" id="title" value="{{i.id}}" name="myid" readonly><br><br>
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" value="{{i.Title}}" name="title" required><br><br>
+
+            <label for="image">Recipe Image:</label>
+            <img src="/{{i.RecipeImage}}" width="50" alt=""><br>
+            <input type="file" id="image" value="{{i.RecipeImage}}" name="image" ><br><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" value="" name="description" rows="4" required>{{i.Description}}</textarea>
+
+            <label for="prep_time">Prep Time:</label>
+            <input type="text" id="prep_time" value="{{i.PrepTime}}" name="prep_time" required>
+
+            <label for="cook_time">Cook Time:</label>
+            <input type="text" id="cook_time" value="{{i.CookTime}}" name="cook_time" required>
+
+            <label for="servings">Servings:</label>
+            <input type="text" id="servings" value="{{i.Servings}}" name="servings" required>
+            {% endfor %}
+                
+
+            <input type="submit" value="Update Recipe Card">
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock content %}
+    
