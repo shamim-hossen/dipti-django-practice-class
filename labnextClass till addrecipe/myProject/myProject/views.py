@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from myApp.models import CustomUserModel, RecipeModel
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 def signup(request):
     if request.method=='POST':
@@ -47,17 +48,20 @@ def signin(request):
             return redirect('signin')
     return render(request, 'signin.html')
 
+@login_required
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+@login_required
 def logoutfn(request):
     logout(request)
     return redirect('signin')
 
-
+@login_required
 def profile(request):
     return render(request, 'profile.html')
 
+@login_required
 def viewrecipe(request):
     if request.user.UserType=='chef':
         recipe=RecipeModel.objects.filter(OwnerOfPost=request.user)
@@ -68,6 +72,7 @@ def viewrecipe(request):
     }
     return render(request, 'viewrecipe.html',contex)
 
+@login_required
 def addrecipe(request):
     if request.user.UserType=='chef':
         if request.method=='POST':
@@ -94,7 +99,8 @@ def addrecipe(request):
     else:
         logout(request)
         return redirect('signin')
-    
+
+@login_required
 def editrecipe(request, myid):
     recipe=RecipeModel.objects.filter(id=myid)
     contex={
@@ -102,6 +108,7 @@ def editrecipe(request, myid):
     }
     return render(request, 'editrecipe.html', contex)
 
+@login_required
 def updaterecipe(request):
         if request.user.UserType=='chef':
             if request.method=='POST':
@@ -141,11 +148,13 @@ def updaterecipe(request):
                 recipe.save()
                 return redirect('viewrecipe')
 
+@login_required
 def deleterecipe(request, myid):
     recipe=RecipeModel.objects.get(id=myid)
     recipe.delete()
     return redirect('viewrecipe')
 
+@login_required
 def viewfullrecipe(request, myid):
     recipe=RecipeModel.objects.get(id=myid)
     contex={
