@@ -30,3 +30,11 @@ class RecipeModel(models.Model):
 
     def __str__(self):
         return self.Title
+    
+
+class RecruiterProfileModel(models.Model):
+    user=models.OneToOneField(CustomUserModel, on_delete=models.CASCADE)
+    CompanyName=models.CharField(max_length=100)
+    CompanyLocation=models.CharField(max_length=100)
+    def __str__(self):
+        return self.CompanyName
