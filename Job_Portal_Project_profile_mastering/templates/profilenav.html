@@ -1,0 +1,29 @@
+<div class="buttons">
+    <button class="button">
+        <a href="{% url 'profilebasicinfo' %}">Basic Info</a>
+    </button>
+    <button class="button">
+        <a href="{% url 'editprofile' %}">Edit Profile</a>
+    </button>
+    {% if user.UserType == 'jobrecruiter' %}
+        <button class="button">
+            <a href="{% url 'postedjob' %}">Posted Jobs</a>
+        </button>
+        <button class="button">
+            <a href="{% url 'profilerecruitercontact' %}">Contact</a>
+        </button>
+    {% elif user.UserType == 'jobseeker' %}
+        <button class="button">
+            <a href="{% url 'appliedjob' %}">Applied Jobs</a>
+        </button>
+        <button class="button">
+            <a href="{% url 'educationqualification' %}">Education Qualification</a>
+        </button>
+        <button class="button">
+            <a href="{% url 'workexperience' %}">Work experience</a>
+        </button>
+        <button class="button">
+            <a href="{% url 'content' %}">Content</a>
+        </button>
+    {% endif %}
+</div>

@@ -1,0 +1,20 @@
+{% extends 'profile.html' %}
+
+{% block profileinfo %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Content</h1>
+        <div class="profile-info">
+            <label for="first_name">Seeker Description:</label><br> <span id="first_name">{{user.seekercontentmodel.SeekerDescription}}</span><br><br>
+            <label for="last_name">Career Summary:</label><br> <span id="last_name">{{user.seekercontentmodel.CareerSummary}}</span><br>
+        <div>
+    </body>
+    </html>
+{% endblock profileinfo %}
+    

@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    
+
+<table id="customers">
+  <tr>
+    <th>JobTitle</th>
+    <th>JobDescription</th>
+    <th>JobLocation</th>
+    <th>Deadline</th>
+    <th>CompanyLogo</th>
+    <th>JobType</th>
+    <th>Workplace</th>
+    <th>Salary</th>
+    <th>Action</th>
+  </tr>
+  
+  {% for i in job %}
+  <tr>
+    <td>{{i.JobTitle}} </td>
+    <td>{{i.JobDescription}} </td>
+    <td>{{i.JobLocation}} </td>
+    <td>{{i.Deadline}} </td>
+    <td>
+        <img src="/{{i.CompanyLogo}}" width="50" alt="">    
+    </td>
+    <td>{{i.JobType}} </td>
+    <td>{{i.Workplace}} </td>
+    <td>{{i.Salary}} </td>
+    <td>
+        <a href="{% url 'viewjob' i.id %}">view</a> 
+        
+        {% if user.UserType == 'jobrecruiter' %}
+            <a href="{% url 'deljob' i.id %}">delete</a>    
+            <a href="{% url 'editjob' i.id %}">edit</a> 
+        {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+    
+
+</table>
+</body>
+</html>
+
+{% endblock content %}
+    
