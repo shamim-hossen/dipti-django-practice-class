@@ -1,0 +1,79 @@
+{% extends 'profile.html' %}
+
+{% block profileinfo %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Your CSS styles here */
+                .job-cards-container {
+                    font-size: 0; /* Fixes spacing issues between inline-block elements */
+                }
+
+            .job-card {
+                display: inline-block;
+                width: calc(50% - 20px); /* Two cards per row with a 20px gap */
+                max-width: 200px; /* Maximum width of the card */
+                vertical-align: top;
+                border: 1px solid #eaeaea;
+                border-radius: 8px;
+                margin: 0 10px 20px 0; /* Margin for spacing between cards */
+                padding: 15px; /* Padding inside the card */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                font-size: 16px; /* Reset font size to avoid inheriting 0 font size from parent */
+            }
+            .job-card h3 {
+                font-size: 18px;
+                margin-top: 0;
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .job-card p {
+                margin-bottom: 10px;
+                color: #666;
+            }
+
+            .job-card img {
+                width: 50px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .job-card hr {
+                border: none;
+                border-top: 1px solid #eaeaea;
+                margin: 10px 0;
+            }
+
+            .job-card-details {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Posted Jobs</h3>
+        <div class="job-cards-container">
+            {% for i in job %}
+                <div class="job-card">
+                    <div class="job-card-details">
+                        <h3>{{i.JobTitle}}</h3>
+                        <p>{{i.JobDescription}}</p>
+                        <hr>
+                        <p><strong>Location:</strong> {{i.JobLocation}}</p>
+                        <p><strong>Company:</strong> {{i.CompanyName}}</p>
+                        <p><strong>Job Type:</strong> {{i.JobType}}</p>
+                        <p><strong>Salary:</strong> {{i.Salary}}</p>
+                        <p><strong>Deadline:</strong> {{i.Deadline}}</p>
+                    </div>
+                    <img src="/{{i.CompanyLogo}}" alt="Company Logo">
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+    </html>
+{% endblock profileinfo %}

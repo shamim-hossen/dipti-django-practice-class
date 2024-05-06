@@ -1,0 +1,25 @@
+{% extends 'profile.html' %}
+
+{% block profileinfo %}
+<h3>Basic info</h3>
+<div class="profile-info">
+    <label for="first_name">First Name:</label> <span id="first_name">{{user.first_name}}</span><br>
+    <label for="last_name">Last Name:</label> <span id="last_name">{{user.last_name}}</span><br>
+    <label for="username">Username:</label> <span id="username">{{user.username}}</span><br>
+    <label for="age">Age:</label> <span id="age">{{user.Age}}</span><br>
+    <label for="gender">Gender:</label> <span id="gender">{{user.Gender}}</span><br>
+    <label for="blood_group">Blood Group:</label> <span id="blood_group">{{user.BloodGroup}}</span><br>
+    <label for="user_type">User Type:</label> <span id="user_type">{{user.UserType}}</span><br>
+    <label for="city">City:</label> <span id="city">{{user.City}}</span><br>
+    <label for="country">Country:</label> <span id="country">{{user.Country}}</span><br>
+    {% if user.UserType == 'jobseeker' %}
+        <label for="qualification">Qualification:</label> <span id="qualification">{{user.seekerprofilemodel.Qualification}}</span><br>
+        <label for="experience">Experience:</label> <span id="experience">{{user.seekerprofilemodel.Experience}}</span><br>
+        <label for="skills">Skills:</label> <span id="skills">{{user.seekerprofilemodel.Skills}}</span><br>
+    {% elif user.UserType == 'jobrecruiter' %}
+        <label for="company_name">Company Name:</label> <span id="company_name">{{user.recruiterprofilemodel.CompanyName}}</span><br>
+        <label for="company_location">Company Location:</label> <span id="company_location">{{user.recruiterprofilemodel.CompanyLocation}}</span><br>
+    {% endif %}
+</div>
+{% endblock profileinfo %}
+    

@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: block;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 50px auto; /* Center align the card */
+            text-align: center;
+        }
+        .profile-card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .profile-info {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .profile-info label {
+            font-weight: bold;
+            color: #666;
+        }
+        .profile-info span {
+            color: #333;
+        }
+        .profile-photo {
+            margin-bottom: 20px;
+        }
+        .profile-photo img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <h3> Profile : {{user.first_name}} {{user.last_name}} </h3>
+        <div class="profile-photo">
+            <hr>
+            <img src="/{{user.Profile_photo}}" alt="Profile Photo">
+        </div>
+        {% include 'profilenav.html' %}
+
+        
+        {% block profileinfo %}
+            
+        {% endblock profileinfo %}
+            
+
+
+    </div>
+</body>
+</html>
+{% endblock content %}

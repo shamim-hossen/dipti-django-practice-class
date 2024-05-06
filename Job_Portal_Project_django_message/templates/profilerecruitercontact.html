@@ -1,0 +1,24 @@
+{% extends 'profile.html' %}
+
+{% block profileinfo %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h3>Contact </h3>
+        <div class="profile-info">
+            <label for="first_name">First Name:</label> <span id="first_name">{{user.first_name}}</span><br>
+            <label for="last_name">Last Name:</label> <span id="last_name">{{user.last_name}}</span><br>
+            <label for="username">Phone:</label> <span id="username">{{user.recruitercontactinfo.Phone}}</span><br>
+            <label for="username">Email:</label> <span id="username">{{user.recruitercontactinfo.Email}}</span><br>
+            <label for="username">Address:</label> <span id="username">{{user.recruitercontactinfo.Address}}</span><br>
+
+        </div>
+    </body>
+    </html>
+{% endblock profileinfo %}
+    

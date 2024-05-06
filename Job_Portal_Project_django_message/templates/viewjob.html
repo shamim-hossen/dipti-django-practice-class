@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .job-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .job-details h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .field label {
+            font-weight: bold;
+            color: #666;
+        }
+        .field span {
+            color: #333;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="job-details">
+        <h2>Job Details</h2>
+        <div class="field">
+            <label for="company-logo">Company Logo:</label>
+            <img src="/{{ job.CompanyLogo }}" width="50" alt="Company Logo">
+        </div>
+
+        <div class="field">
+            <label for="job-title">Job Title:</label>
+            <span>{{ job.JobTitle }}</span>
+        </div>
+        <div class="field">
+            <label for="job-description">Job Description:</label>
+            <span>{{ job.JobDescription }}</span>
+        </div>
+        <div class="field">
+            <label for="job-location">Job Location:</label>
+            <span>{{ job.JobLocation }}</span>
+        </div>
+        <div class="field">
+            <label for="deadline">Deadline:</label>
+            <span>{{ job.Deadline }}</span>
+        </div>
+
+        <div class="field">
+            <label for="requirements">Requirements:</label>
+            <span>{{ job.Requirements }}</span>
+        </div>
+        <div class="field">
+            <label for="qualification">Qualification:</label>
+            <span>{{ job.Qualification }}</span>
+        </div>
+        <div class="field">
+            <label for="job-type">Job Type:</label>
+            <span>{{ job.JobType }}</span>
+        </div>
+        <div class="field">
+            <label for="workplace">Workplace:</label>
+            <span>{{ job.Workplace }}</span>
+        </div>
+        <div class="field">
+            <label for="salary">Salary:</label>
+            <span>{{ job.Salary }}</span>
+        </div>
+        <div class="field">
+            <label for="experience">Experience:</label>
+            <span>{{ job.Experience }}</span>
+        </div>
+        <!-- <div class="field">
+            <label for="created-by">Created By:</label>
+            <span>{{ job.CreatedBy }}</span>
+        </div> -->
+    </div>
+</body>
+</html>
+
+{% endblock content %}
+    

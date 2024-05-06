@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <style>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 600px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-heading {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: auto;
+}
+
+.user-details-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-details-list ul li {
+    margin-bottom: 10px;
+}
+
+.user-details-list ul li strong {
+    font-weight: bold;
+}
+
+.user-details-list ul li:last-child {
+    margin-bottom: 0;
+}
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <h1 class="dashboard-heading">Dashboard</h1>
+                <div class="user-info">
+                    <div class="profile-photo">
+                        <img src="/{{ user.Profile_photo }}" alt="Profile Photo">
+                    </div>
+                    <div class="user-details">
+                        <h3 class="user-name">{{ user }}</h3>
+                        <div class="user-details-list">
+                            <ul>
+                                <li><strong>First Name:</strong> {{ user.first_name }}</li>
+                                <li><strong>Last Name:</strong> {{ user.last_name }}</li>
+                                <li><strong>User Type:</strong> {{ user.UserType }}</li>
+                                <li><strong>Age:</strong> {{ user.Age }}</li>
+                                <li><strong>Gender:</strong> {{ user.Gender }}</li>
+                                <li><strong>Blood Group:</strong> {{ user.BloodGroup }}</li>
+                                <li><strong>City:</strong> {{ user.City }}</li>
+                                <li><strong>Country:</strong> {{ user.Country }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- <h1>Dashboard</h1>
+        <img src="/{{user.Profile_photo}}" width="50" alt="">
+        <h3>User : {{user}} </h3>
+        <h3>User type : {{user.UserType}} </h3> -->
+    </body>
+    </html>
+{% endblock content %}
+    
