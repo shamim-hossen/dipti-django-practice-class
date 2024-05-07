@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-details {
+            margin-bottom: 20px;
+        }
+
+        .profile-details label {
+            font-weight: bold;
+        }
+
+        .profile-details p {
+            margin: 5px 0;
+        }
+
+        .profile-details img {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+        <div class="profile-details">
+            <label for="photo">Photo:</label>
+            <img src="{{ user.photo.url }}" alt="Profile Photo">
+        </div>
+        <div class="profile-details">
+            <label for="username">Username:</label>
+            <p>{{ user.username }}</p>
+        </div>
+        <div class="profile-details">
+            <label for="age">User Type:</label>
+            <p>{{ user.user_type }}</p>
+        </div>
+        <div class="profile-details">
+            <label for="age">Age:</label>
+            <p>{{ user.age }}</p>
+        </div>
+        <div class="profile-details">
+            <label for="gender">Gender:</label>
+            <p>{{ user.gender }}</p>
+        </div>
+        <div class="profile-details">
+            <label for="blood_group">Blood Group:</label>
+            <p>{{ user.blood_group }}</p>
+        </div>
+        <div class="profile-details">
+            <label for="city">City:</label>
+            <p>{{ user.city }}</p>
+        </div>
+        <div class="profile-details">
+            <label for="country">Country:</label>
+            <p>{{ user.country }}</p>
+        </div>
+       <button><a href="{% url 'editprofile' %}">Edit Profile</a></button>
+       {% if user.user_type == 'recruiter' %}
+       <button><a href="">Post Jobs</a></button>
+
+       <button><a href="{% url 'basic_info' %}">Basic Info</a></button>
+       <button><a href="{% url 'contact' %}">Contact</a></button>
+       {% elif user.user_type == 'jobseeker' %}
+
+       <button><a href="">Basic Info</a></button>
+       <button><a href="{% url 'basic_info' %}">Basic Info</a></button>
+       <button><a href="{% url 'contact' %}">Contact</a></button>
+       <button><a href="{% url 'education' %}">Education</a></button>
+       <button><a href="{% url 'experience' %}">Experience</a></button>
+       {% endif %}
+       <button><a href="{% url 'experience' %}">Reset Password</a></button>
+       <hr>
+       {% block info %}
+       {% if user.user_type == 'recruiter' %}
+       <div>
+            <div class="profile-details">
+                <label for="username">Company_Name:</label>
+                <p>{{ user.recruiter_profile.company_name }}</p>
+            </div>
+            <div class="profile-details">
+                <label for="age">Company_Location:</label>
+                <p>{{ user.recruiter_profile.company_name }}</p>
+            </div>
+        </div>
+        {% elif user.user_type == 'jobseeker' %}
+        <div>
+            <div class="profile-details">
+                <label for="username">Qualification:</label>
+                <p>{{ user.seeker_profile.qualification }}</p>
+            </div>
+            <div class="profile-details">
+                <label for="age">Experience:</label>
+                <p>{{ user.seeker_profile.experience }}</p>
+            </div>
+            <div class="profile-details">
+                <label for="age">Skills:</label>
+                <p>{{ user.seeker_profile.skills }}</p>
+            </div>
+        </div>
+        {% endif %}
+       {% endblock info %}
+       
+    </div>
+</body>
+</html>
+
+{% endblock content %}

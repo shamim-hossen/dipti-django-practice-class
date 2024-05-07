@@ -1,0 +1,25 @@
+{% extends "profile.html" %}
+
+{% block info %}
+<h2>Education</h2>
+<div>
+    <div class="profile-details">
+        <label for="username">degree:</label>
+        <p>{{ user.education.degree }}</p>
+    </div>
+    <div class="profile-details">
+        <label for="age">institute:</label>
+        <p>{{ user.education.institute }}</p>
+    </div>
+    <div class="profile-details">
+        <label for="age">result:</label>
+        <p>{{ user.education.result }}</p>
+    </div>
+    <div class="profile-details">
+        <label for="age">passing_year:</label>
+        <p>{{ user.education.passing_year }}</p>
+    </div>
+</div>
+
+
+{% endblock info %}

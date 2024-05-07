@@ -1,0 +1,8 @@
+<ul>
+    <li><a href="{% url 'deshboard' %}">Deshboard</a></li>
+    {% if user.user_type == 'recruiter' %}
+    <li><a href="{% url 'addjob' %}">Add Job</a></li>
+    {% endif %}
+    <li><a href="{% url 'profile' %}">Profile</a></li>
+    <li style="float:right"><a class="active" href="{% url 'signout' %}">Logout</a></li>
+  </ul>

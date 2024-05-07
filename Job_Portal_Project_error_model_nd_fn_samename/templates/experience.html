@@ -1,0 +1,25 @@
+{% extends "profile.html" %}
+
+{% block info %}
+<h2>Work of Experience</h2>
+<div>
+    <div class="profile-details">
+        <label for="username">company_name:</label>
+        <p>{{ user.experience.company_name }}</p>
+    </div>
+    <div class="profile-details">
+        <label for="age">designation:</label>
+        <p>{{ user.experience.designation }}</p>
+    </div>
+    <div class="profile-details">
+        <label for="age">joining_date:</label>
+        <p>{{ user.experience.joining_date }}</p>
+    </div>
+    <div class="profile-details">
+        <label for="age">leaving_date:</label>
+        <p>{{ user.experience.leaving_date }}</p>
+    </div>
+</div>
+
+
+{% endblock info %}

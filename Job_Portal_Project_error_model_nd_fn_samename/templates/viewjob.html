@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .job-details {
+            margin-bottom: 20px;
+        }
+
+        .job-details label {
+            font-weight: bold;
+        }
+
+        .job-details p {
+            margin: 5px 0;
+        }
+
+        .job-details img {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Job Details</h2>
+        <div class="job-details">
+            <label for="company_logo">Company Logo:</label>
+            <img src="{{view.company_logo.url}}" alt="Company Logo">
+        </div>
+        <div class="job-details">
+            <label for="job_title">Job Title:</label>
+            <p>{{ view.job_title }}</p>
+        </div>
+        <div class="job-details">
+            <label for="job_description">Job Description:</label>
+            <p>{{ view.job_description }}</p>
+        </div>
+        <div class="job-details">
+            <label for="job_location">Job Location:</label>
+            <p>{{ view.job_location }}</p>
+        </div>
+        <div class="job-details">
+            <label for="deadline">Deadline:</label>
+            <p>{{ view.deadline }}</p>
+        </div>
+        <div class="job-details">
+            <label for="requirements">Requirements:</label>
+            <p>{{ view.requirements }}</p>
+        </div>
+        <div class="job-details">
+            <label for="qualification">Qualification:</label>
+            <p>{{ view.qualification }}</p>
+        </div>
+        <div class="job-details">
+            <label for="job_type">Job Type:</label>
+            <p>{{ view.job_type }}</p>
+        </div>
+        <div class="job-details">
+            <label for="work_place">Work Place:</label>
+            <p>{{ view.work_place }}</p>
+        </div>
+        <div class="job-details">
+            <label for="salary">Salary:</label>
+            <p>{{ salary }}</p>
+        </div>
+        <div class="job-details">
+            <label for="experience">Experience:</label>
+            <p>{{ view.experience }}</p>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock content %}
