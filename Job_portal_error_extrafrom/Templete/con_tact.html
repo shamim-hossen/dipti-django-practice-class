@@ -1,0 +1,13 @@
+
+{% extends 'profile.html' %}
+
+{% block Information %}
+<div class="profile">
+    <div class="profile-info">
+        <label>contact:</label>
+        <p>Mobile: {{user.contact.e_mail}}</p>
+        <p>E-mail: {{user.contact.mobile}}</p>
+
+    </div>
+</div>
+{% endblock Information %}

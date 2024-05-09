@@ -1,0 +1,15 @@
+
+{% extends 'profile.html' %}
+
+
+{% block Information %}
+    
+<div class="profile">
+    <div class="profile-info">
+        <label>Work Experience:</label>
+        <p>Possition: {{user.work_experience.Possition}}</p>
+        <p>Company Name: {{user.work_experience.name_of_company}}</p>
+
+    </div>
+</div>
+{% endblock Information %}

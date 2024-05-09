@@ -1,0 +1,143 @@
+{% extends 'homepage.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .profile {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .profile img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .profile h2 {
+            margin-top: 0;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .button {
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+          .button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+        
+    </style>
+</head>
+
+
+
+<body>
+
+  
+    <div class="profile">
+        <form action="" enctype="multipart/form-data">
+        <center> 
+            {% include 'address_nav.html' %}
+
+            {% block Information %}
+        
+            {% endblock Information %}
+
+        </center>
+        <br>
+        <br>
+        <!-- <div>
+            <div class="profile-info">
+                <label>Gender:</label>
+                <p>{{user.gender}}</p>
+            </div>
+            <div class="profile-info">
+                <label>City:</label>
+                <p>{{user.city}}</p>
+            </div>
+            <div class="profile-info">
+                <label>Country:</label>
+                <p>{{user.country}}</p>
+            </div>
+            <div class="profile-info">
+                <label>Blood Type:</label>
+                <p>{{user.blood}}</p>
+            </div>
+            <div class="profile-info">
+                <label>User Type:</label>
+                <p>{{user.user_type}}</p>
+            </div>
+            
+            
+            {% if user.recruiterprofile %}
+        
+            <div class="profile-info">
+                <label>Recruiter Name:</label>
+                <p>{{user.recruiterprofile.recruiter_name}}</p>
+            </div>
+            <div class="profile-info">
+                <label>Company Name:</label>
+                <p>{{user.recruiterprofile.company_name}}</p>
+            </div>
+            <div class="profile-info">
+                <label>Company Location:</label>
+                <p>{{user.recruiterprofile.company_location}}</p>
+            </div>
+        
+            {% endif %}
+        
+            {% if user.seekerprofile %}
+            <div class="profile-info">
+                <label>Qualification:</label>
+                <p>{{user.seekerprofile.qualification}}</p>
+            </div>
+            <div class="profile-info">
+                <label>Experience:</label>
+                <p>{{user.seekerprofile.experience}}</p>
+            </div>
+            <div class="profile-info">
+                <label>Skills:</label>
+                <p>{{user.seekerprofile.skills}}</p>
+            </div>
+            {% endif %}
+        </div> -->
+    </div>
+     
+        
+  
+    
+</body>
+</html>
+
+    
+{% endblock content %}
+    

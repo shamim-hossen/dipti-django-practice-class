@@ -1,0 +1,185 @@
+{% extends 'homepage.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .job-profile {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .job-profile img {
+            max-width: 100px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .job-profile h2 {
+            margin-top: 0;
+        }
+        .job-profile label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .job-profile input[type="text"],
+        .job-profile select {
+            width: calc(100% - 12px);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+          width: 100%;
+          background-color: #4caf50;
+          color: white;
+          padding: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="job-profile">
+        <form action="{% url 'editprofile' %}" method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+      <center><h2>Apply Job</h2></center>
+        <div>
+            <label for="user-type">Gender: </label>
+            <select id="user-type" name="gender" required>
+                <option value="male" {% if user.gender == 'male' %} selected  {% endif %}>Male</option>
+                <option value="female" {% if user.gender == 'female' %} selected {% endif %}>Female</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="user-type">Blood: </label>
+            <select id="user-type" name="blood" required>
+                <option value="A+" {% if user.blood == 'A+' %} selected {% endif %}>A+</option>
+                <option value="A-" {% if user.blood == 'A-' %} selected {% endif %}>A-</option>
+                <option value="B+" {% if user.blood == 'B+' %} selected {% endif %}>B+</option>
+                <option value="B-" {% if user.blood == 'B-' %} selected {% endif %}>B-</option>
+            </select>
+        </div>
+
+        <div class="job-info">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" value="{{user.age}}">
+        </div>
+
+        <div class="job-info">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="{{user.city}}">
+        </div>
+
+        <div class="job-info">
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" value="{{user.country}}">
+        </div>
+
+        <div>
+            <label for="user-type">User_type: </label>
+            <select id="user-type" name="user_type" disabled>
+                <option value="recruiter" {% if user.user_type == 'recruiter' %} selected {% endif %}>Recruiter</option>
+                <option value="seeker" {% if user.user_type == 'seeker' %} selected {% endif %}>Seeker</option>
+            </select>
+        </div>
+
+        <div class="job-info">
+            <label for="company_logo">Company Logo:</label>
+            <img src="/{{user.image}}" alt="" style="width:25%"  height="65px">
+            <input type="file" id="company_logo" name="company_logo">
+        </div>
+
+        
+        {% if user.user_type == 'seeker' %}
+
+        <div class="job-info">
+            <label for="qualification">Qualification:</label>
+            <input type="text" id="qualification" name="qualification" value="{{user.seekerprofile.qualification}}">
+        </div>
+
+        <div class="job-info">
+            <label for="experience">Experience:</label>
+            <input type="text" id="experience" name="experience" value="{{user.seekerprofile.experience}}">
+        </div>
+
+        <div class="job-info">
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills" value="{{user.seekerprofile.skills}}">
+        </div>
+
+        <div>
+            <label for="certificate">Certificate: </label>
+            <select id="certificate-type" name="certificate" required>
+                <option value="ssc" {% if user.seekerprofile.certificate == 'ssc' %} selected {% endif %}>SSC</option>
+                <option value="hsc" {% if user.seekerprofile.certificate == 'hsc' %} selected {% endif %}>HSC</option>
+                <option value="diploma" {% if user.seekerprofile.certificate == 'diploma' %} selected {% endif %}>Diploma</option>
+            </select>
+        </div>
+
+        {% elif user.user_type == 'recruiter' %}
+
+        <div class="job-info">
+            <label for="recruiter_name">Name:</label>
+            <input type="text" id="recruiter_name" name="recruiter_name" value="{{user.recruiterprofile.company_name}}">
+        </div>
+
+        <div class="job-info">
+            <label for="company_name">Company_name:</label>
+            <input type="text" id="company_name" name="company_name" value="{{user.recruiterprofile.company_location}}">
+        </div>
+
+        <div class="job-info">
+            <label for="company_location">Company_location:</label>
+            <input type="text" id="company_location" name="company_location" value="{{user.recruiterprofile.recruiter_name}}">
+        </div>
+
+
+            
+        {% endif %}
+            
+        <!-- <div class="job-info">
+            <label for="user_type">User_type:</label>
+            <input type="text" id="user_type" name="user_type">
+        </div> -->
+
+
+      <br>
+
+      <div class="job-info">
+        <label for="password">password:</label>
+        <input type="password" id="password" name="password">
+    </div>
+
+      <div class="job-info">
+        <label for="password">confirm_password:</label>
+        <input type="password" id="password" name="confirm_password">
+    </div>
+
+
+    
+      <br>
+        <center><input type="submit" value="Update"></center>
+    </div>
+</body>
+</html>
+   
+{% endblock content %}
+    

@@ -1,0 +1,66 @@
+{% extends 'profile.html' %}
+
+{% block Information %}
+<div>
+    <div class="profile-info">
+        <label>Gender: {{user.gender}}</label>
+
+    </div>
+    <div class="profile-info">
+        <label>Age: {{user.age}}</label>
+    </div>
+    <div class="profile-info">
+        <label>City: {{user.city}}</label>
+    </div>
+    <div class="profile-info">
+        <label>Country: {{user.country}}</label>
+        <p></p>
+    </div>
+    <div class="profile-info">
+        <label>Blood Type: {{user.blood}}</label>
+        <p></p>
+    </div>
+    <div class="profile-info">
+        <label>User Type: {{user.user_type}}</label>
+        <p></p>
+    </div>
+    
+    
+    {% if user.recruiterprofile %}
+
+    <div class="profile-info">
+        <label>Recruiter Name:</label>
+        <p>{{user.recruiterprofile.recruiter_name}}</p>
+    </div>
+    <div class="profile-info">
+        <label>Company Name:</label>
+        <p>{{user.recruiterprofile.company_name}}</p>
+    </div>
+    <div class="profile-info">
+        <label>Company Location:</label>
+        <p>{{user.recruiterprofile.company_location}}</p>
+    </div>
+
+    {% endif %}
+
+    {% if user.seekerprofile %}
+    <div class="profile-info">
+        <label>Qualification:</label>
+        <p>{{user.seekerprofile.qualification}}</p>
+    </div>
+    <div class="profile-info">
+        <label>Experience:</label>
+        <p>{{user.seekerprofile.experience}}</p>
+    </div>
+    <div class="profile-info">
+        <label>Skills:</label>
+        <p>{{user.seekerprofile.skills}}</p>
+    </div>
+    <div class="profile-info">
+        <label>Certificate:</label>
+        <p>{{user.seekerprofile.certificate}}</p>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock Information %}

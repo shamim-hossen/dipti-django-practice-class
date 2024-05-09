@@ -1,0 +1,13 @@
+
+{% extends 'profile.html' %}
+
+{% block Information %}
+<div class="profile">
+    <div class="profile-info">
+        <label>Education Qualification:</label>
+        <p>Last Degree: {{user.education.last_degree}}</p>
+        <p>Passing Year: {{user.education.passing_year}}</p>
+
+    </div>
+</div>
+{% endblock Information %}

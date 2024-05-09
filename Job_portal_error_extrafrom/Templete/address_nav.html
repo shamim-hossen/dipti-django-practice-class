@@ -1,0 +1,9 @@
+
+    <img src="/{{user.image}}" alt="" style="width:40%"  height="300px">
+    <h2>{{user.first_name}} {{user.last_name}}</h2>
+    <button class="button"><a href="{% url 'editprofile' %}">Edit profile</a></button>
+    <button class="button button2"><a href="{% url 'b_information' %}">Basic Information</a></button>
+    <button class="button button4"><a href="{% url 'education_q' %}">Education Qualification</a></button>
+    <button class="button button5"><a href="{% url 'work_exp' %}">Work Experience</a></button>
+    <button class="button button3"><a href="{% url 'con_tact' %}">Contact</a></button>
+    <button class="button"><a href="{% url 'change_passwordPage' %}">Change Password</a></button>

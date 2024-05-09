@@ -1,0 +1,134 @@
+{% extends 'homepage.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .job-profile {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .job-profile img {
+            max-width: 100px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .job-profile h2 {
+            margin-top: 0;
+        }
+
+        .job-profile label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .job-profile input[type="text"],
+        .job-profile select {
+            width: calc(100% - 12px);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="job-profile">
+        <form action="{% url 'addjob' %}" method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            <center>
+                <h2>Apply Job</h2>
+            </center>
+
+            <div class="job-info">
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title">
+            </div>
+            <div class="job-info">
+                <label for="job_description">Job Description:</label>
+                <input type="text" id="job_description" name="job_description">
+            </div>
+            <div class="job-info">
+                <label for="job_location">Job Location:</label>
+                <input type="text" id="job_location" name="job_location">
+            </div>
+            <div class="job-info">
+                <label for="deadline">Deadline:</label>
+                <input type="text" id="deadline" name="deadline">
+            </div>
+
+            <div class="job-info">
+                <label for="requirement">Requirement:</label>
+                <input type="text" id="requirement" name="requirement">
+            </div>
+            <div class="job-info">
+                <label for="qualification">Qualification:</label>
+                <input type="text" id="qualification" name="qualification">
+            </div>
+            <div class="job-info">
+                <label for="job_type">Job Type:</label>
+                <select id="job_type" name="job_type">
+                    <option value="Full Time">Full Time</option>
+                    <option value="Part Time">Part Time</option>
+                </select>
+            </div>
+            <div class="job-info">
+                <label for="workplace">Workplace:</label>
+                <select id="workplace" name="workplace">
+                    <option value="Remote">Remote</option>
+                    <option value="On-site">On-site</option>
+                </select>
+            </div>
+            <div class="job-info">
+                <label for="salary">Salary:</label>
+                <input type="text" id="salary" name="salary">
+            </div>
+            <div class="job-info">
+                <label for="experience">Experience:</label>
+                <input type="text" id="experience" name="experience">
+            </div>
+
+            <div class="job-info">
+                <label for="company_logo">Company Logo:</label>
+
+                <input type="file" id="company_logo" name="company_logo">
+            </div>
+            <br>
+            <center><input type="submit" value="Submit"></center>
+    </div>
+</body>
+
+</html>
+
+{% endblock content %}

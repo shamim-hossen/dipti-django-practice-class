@@ -1,0 +1,77 @@
+
+{% extends 'profile.html' %}
+
+{% block Information %}
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .profile {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .profile img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .profile h2 {
+            margin-top: 0;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .button {
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+          .button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+        
+    </style>
+</head>
+<body> -->
+    <div class="profile">
+        <div class="profile-info">
+            <label>Basic Information:</label>
+            <p>Father's Name: {{user.basic_information.father_name}}</p>
+            <p>Mother's Name: {{user.basic_information.mother_name}}</p>
+            <p>Parmanent Address: {{user.basic_information.Parmanent_address}}</p>
+        </div>
+    </div>
+    
+<!-- </body>
+</html> -->
+   
+{% endblock Information %}
+    
