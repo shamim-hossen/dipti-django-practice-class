@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from JobApp.models import CustomUserModel, AddJobModel,RecruiterContactInfo,RecruiterProfileModel,SeekerProfileModel,SeekerBasicInfoModel,SeekerEducationQualificationModel,SeekerWorkExperienceModel,SeekerContentModel
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth import update_session_auth_hash
 
 def signup(request):
     if request.method=='POST':
@@ -227,3 +229,17 @@ def workexperience(request):
 
 def content(request):
     return render(request, 'content.html')
+
+def change_pass(request):
+    if request.method=='POST':
+        current_password=request.POST.get('current_password')
+        new_password=request.POST.get('new_password')
+        confirm_password=request.POST.get('confirm_password')
+
+        if check_password(current_password, request.user.password):
+            if new_password==confirm_password:
+                request.user.set_password(new_password)
+                request.user.save()
+                update_session_auth_hash(request, request.user)
+                return redirect('profile')
+    return render(request, 'changepass.html')

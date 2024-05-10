@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from Job_Portal_Project.views import signin, signup, dashboard,logoutfn, profile, addjob, viewalljob, editjob, deljob, updatejob, viewjob, appliedjob, postedjob, editprofile,profilebasicinfo, profilerecruitercontact, educationqualification, workexperience, content
+from Job_Portal_Project.views import signin, signup, dashboard,logoutfn, profile, addjob, viewalljob, editjob, deljob, updatejob, viewjob, appliedjob, postedjob, editprofile,profilebasicinfo, profilerecruitercontact, educationqualification, workexperience, content, change_pass
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('educationqualification/', educationqualification, name='educationqualification'),
     path('workexperience/', workexperience, name='workexperience'),
     path('content/', content, name='content'),
+    path('change_pass/', change_pass, name='change_pass'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
