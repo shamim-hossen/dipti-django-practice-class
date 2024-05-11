@@ -4,6 +4,25 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+
+all_messages={
+    'account_success':'Account create successful!',
+    'password_warning':'Password and Confirm password not match',
+    'password_warning2':'Password not match with Database',
+    'credential_warning':'Account credential not match',
+    'age_warning':'age is not valid',
+    'first_name_warning':'First Name should only contain letters.',
+    'last_name_warning':'Last Name should only contain letters.',
+    'username_warning':'Username Already exists',
+    'age_warning':'Please put your age in number; e.g: 19',
+    'age_warning2':'Your age must be between 18 and 150.',
+    'city_name_warning':'City Name not valid',
+    'country_name_warning':'Country Name not valid',
+    'user_not_found_warning':'Cant find the username',
+    'signin_success':'Sign In Successful',
+}
+
 
 def signup(request):
     if request.method=='POST':
@@ -46,6 +65,7 @@ def signup(request):
                 SeekerWorkExperienceModel.objects.create(user=user)
                 SeekerContentModel.objects.create(user=user)
             user.save()
+            messages.success(request, all_messages['account_success'])
             return redirect('signin')
         else:
             return redirect('signup')

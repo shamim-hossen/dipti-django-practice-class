@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+  /* Style for the messages */
+  .message {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  animation: slideIn 0.5s ease forwards;
+  display: flex; /* Add display flex */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+
+  /* Colors for different message types */
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  .warning {
+    background-color: #ffc400;
+    color: #856404;
+  }
+
+  /* Keyframe animation for sliding in */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'success' %}
+      <p class="message success">{{ message }}</p>
+    {% elif message.tags == 'warning' %}
+      <p class="message warning">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+</body>
+</html>
