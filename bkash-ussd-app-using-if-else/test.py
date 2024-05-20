@@ -1,6 +1,6 @@
 # print(1-100 with increasing 10 in every step)
-for i in range(0,101,10):
-    print(i)
+#for i in range(0,101,10):
+#    print(i)
 
     # Even print with while loop start with 0
 # i=0
@@ -85,7 +85,7 @@ for i in range(0,101,10):
 #         print(i)
 #         break
 
-
+# for loop in python
 # fruits = [['r', 'n','h','s'], "banana", "cherry"]
 # for x in fruits:
 #     for i in x:
@@ -93,7 +93,7 @@ for i in range(0,101,10):
 #     print("\n")
 
 
-
+# Nested for loop in python
 # fruits = [['ranajit', 'naiyem', 'hannan', 'sagor'], "banana", "cherry"]
 # for item in fruits[0]:
 #     for i in item:
@@ -102,8 +102,5 @@ for i in range(0,101,10):
 #         print('\n')
 
 
-# for i in range(0,61,10):
-#     print(i)
-
-
-
+for i in range(0,61,10):
+    print(i)
