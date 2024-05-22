@@ -27,6 +27,15 @@
 # print(printfact(5))
 
 
+'''Findout Factorial in simple way  '''
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+print(factorial(5))
+
+
 '''print number '''
 def sum(n):
     if n>0:
