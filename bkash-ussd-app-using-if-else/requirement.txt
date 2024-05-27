@@ -1,0 +1,15 @@
+Add require fields 
+1.first name
+2.last name
+3.student id
+4.gender(choice)
+5.Date of birth
+6.Department(choice)departmentselect-sendid
+7.sidebar>session_year 
+8.Gender(choice)
+9.Religion
+10.Section(choice A,B,C)
+11.Student Image
+12.email -----|
+13.username   |create user
+14.password---|
