@@ -1,0 +1,15 @@
+
+{% if messages %}
+    
+    {% for message in messages  %}
+        
+        {% if message.tags == 'success' %}
+            <p>{{message}} </p>
+        {% elif message.tags == 'warning' %}
+            <P>{{message}} </P>
+        {% endif %}
+            
+    {% endfor %}
+        
+{% endif %}
+    

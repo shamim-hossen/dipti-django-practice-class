@@ -1,0 +1,21 @@
+{% extends 'profile.html' %}
+
+{% block profilebase %}
+    <h3>Change password</h3>
+    <form method="post" action="{% url 'cngpassword' %}">
+        {% csrf_token %}
+        <label for="id_old_password">Current Password:</label><br>
+        <input type="password" id="id_old_password" name="cu_password" required><br><br>
+    
+        <label for="id_new_password1">New Password:</label><br>
+        <input type="password" id="id_new_password1" name="new_password" required><br><br>
+    
+        <label for="id_new_password2">Confirm New Password:</label><br>
+        <input type="password" id="id_new_password2" name="con_new_password" required><br><br>
+    
+        <button type="submit">Change Password</button>
+    </form>
+    
+    
+{% endblock profilebase %}
+    
