@@ -1,0 +1,18 @@
+
+
+
+
+<button class="button"><a href="{% url 'basicinfo' %}">Basic information</a></button>
+<button class="button"><a href="{% url 'cngpass' %}">Change password</a></button>
+
+    {% if user.role == 'jobseeker' %}
+    <button class="button"><a href="{% url 'education' %}">Educational qualification</a></button>
+    <button class="button"><a href="{% url 'experience' %}">Work Experience</a></button>
+    <button class="button"><a href="{% url 'seekerinfo' %}">Contact Details</a></button>
+    {% elif user.role == 'recruiter' %}
+    <button class="button"><a href="{% url 'recruiterinfo' %}">Contact Details</a></button>
+    {% endif %}
+    
+
+    
+

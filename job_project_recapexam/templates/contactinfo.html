@@ -1,0 +1,18 @@
+{% extends 'profile.html' %}
+
+
+{% block profilebase %}
+<h1>CONTACT DETAILS</h1>
+{% if user.role == 'jobseeker' %}
+
+<h3>Email:</h3>
+<p>{{user.email}}</p>
+
+
+{% elif user.role == 'recruiter' %}
+
+<h3>Email:</h3>
+<p>{{user.email}}</p>
+
+{% endif %}
+{% endblock profilebase %}

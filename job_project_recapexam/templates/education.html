@@ -1,0 +1,12 @@
+{% extends 'profile.html' %}
+
+
+{% block profilebase %}
+
+<h1>EDUCATION</h1>
+<h3>education_name:</h3>
+<p>{{user.seekermodel.education_name}}</p>
+<h3>education_institute:</h3>
+<p>{{user.seekermodel.education_institute}}</p>
+
+{% endblock profilebase %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Application Form</title>
+</head>
+<body>
+
+  <h2>Job Application Form</h2>
+  <form action="{% url 'updatejob'  %}" method="POST">
+    {% csrf_token %}
+
+    
+    {% for job in jobs %}
+    <label for="jobTitle">Job Title:</label><br>
+    <input type="text" id="id" value="{{job.id}}" name="myid" required><br><br>
+    <label for="jobTitle">Job Title:</label><br>
+    <input type="text" id="jobTitle" value="{{job.jobTitle}}" name="jobTitle" required><br><br>
+
+    <label for="companyDescription">Company Description:</label><br>
+    <textarea id="companyDescription"  name="companyDescription" rows="4" cols="40" required>value="{{job.companyDescription}}"</textarea><br><br>
+
+    <label for="companyName">Company Name:</label><br>
+    <input type="text" id="companyName" value="{{job.companyName}}" name="companyName" required><br><br>
+
+    <label for="companyLocation">Company Location:</label><br>
+    <input type="text" id="companyLocation" value="{{job.companyLocation}}" name="companyLocation" required><br><br>
+
+    <label for="qualifications">Qualifications:</label><br>
+    <textarea id="qualifications" name="qualifications" rows="4" cols="40" required>value="{{job.qualifications}}" </textarea><br><br>
+
+    <label for="deadline">Deadline:</label><br>
+    <input type="date" id="deadline" value="{{job.deadline}}" name="deadline" required><br><br>
+
+    <label for="salary">Salary:</label><br>
+    <input type="text" id="salary" value="{{job.salary}}" name="salary" required><br><br>
+
+    {% endfor %}
+        
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
+
+{% endblock content %}
+    
