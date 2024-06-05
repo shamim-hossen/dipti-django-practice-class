@@ -1,0 +1,14 @@
+{% extends 'profile/baseprofile.html' %}
+
+{% block proinfo %}
+<h3>Username</h3>
+<p>{{user.username}}</p>
+<h3>User Type</h3>
+<p>{{user.user_type}}</p>
+<h3>City</h3>
+<p>{{user.city}}</p>
+<h3>Gender</h3>
+<p>{{user.gender}}</p>
+<h3>Email</h3>
+<p>{{user.email}}</p>
+{% endblock proinfo %}

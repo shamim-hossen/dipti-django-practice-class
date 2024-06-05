@@ -1,0 +1,93 @@
+{% extends 'profile/baseprofile.html' %}
+
+
+{% block proinfo %}
+<div>
+    <form action="{% url 'editprofile' %}" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="fname">Username</label>
+      <input type="text" id="fname" value="{{user.username}}" name="username" readonly>
+      <br>
+
+      <label for="country">Select role</label>
+    <select id="user_type" name="user_type" disabled>
+        <option value="seeker" {% if user.user_type == 'seeker' %} selected {% endif %} >Job Seeker</option>
+        <option value="recruiter" {% if user.user_type == 'recruiter' %} selected {% endif %}>Job Recruiter</option>
+    </select>
+    <br>
+    
+    <label for="fname">City</label>
+    <input type="text" id="fname" value="{{user.city}}" name="city">
+     <br>
+     <label for="country">Select Gender</label>
+     <select id="user_type" name="gender">
+         <option value="male" {% if user.gender == 'male' %} selected {% endif %} >Male</option>
+         <option value="female" {% if user.gender == 'female' %} selected {% endif %} >Female</option>
+         <option value="others" {% if user.gender == 'others' %} selected {% endif %} >Others</option>
+     </select>
+     <br>
+     <label for="fname">Current Profile Picture</label> <br>
+     <img src="{{user.profile_picture.url}}" width="50px" alt="">
+     <br>
+     <input type="file" id="fname" name="profile_picture">
+     <br>
+     <label for="fname">Email</label>
+     <input type="email" id="fname" value="{{user.email}}" name="email">
+     <br>
+
+     <!-- profile basic -->
+     <label for="fname">Father name</label>
+     <input type="email" id="fname" value="{{user.father_name}}" name="father_name">
+     <br>
+     <label for="fname">Mother name</label>
+     <input type="email" id="fname" value="{{user.mother_name}}" name="mother_name">
+     <br>
+     <label for="fname">Hobby</label>
+     <input type="email" id="fname" value="{{user.hobby}}" name="hobby">
+     <br>
+
+     {% if user.user_type == 'recruiter' %}
+     <!-- recruiter contact -->
+     <label for="fname">Mobile Number</label>
+     <input type="email" id="fname" value="{{user.recruitermodel.mobile_number}}" name="mobile_number">
+     <br>
+     <label for="fname">Company address</label>
+     <input type="email" id="fname" value="{{user.recruitermodel.company_address}}" name="company_address">
+      <br>
+     {% endif %}
+
+     {% if user.user_type == 'seeker' %}
+     <!-- seeker education -->
+     <label for="fname">Education name</label>
+     <input type="email" id="fname" value="{{user.seekermodel.edu_name}}" name="edu_name">
+     <br>
+     <label for="fname">Education institute</label>
+     <input type="email" id="fname" value="{{user.seekermodel.edu_institute}}" name="edu_institute">
+     <br>
+     <label for="fname">Education location</label>
+     <input type="email" id="fname" value="{{user.seekermodel.edu_location}}" name="edu_location">
+     <br>
+     
+     <!-- seeker work  -->
+     <label for="fname">Work name</label>
+     <input type="email" id="fname" value="{{user.seekermodel.work_name}}" name="work_name">
+     <br>
+     <label for="fname">Work location</label>
+     <input type="email" id="fname" value="{{user.seekermodel.work_location}}" name="work_location">
+     <br>
+     <label for="fname">Work time</label>
+     <input type="email" id="fname" value="{{user.seekermodel.work_time}}" name="work_time">
+     <br>
+     <br>
+
+     {% endif %}
+     
+
+    <input type="submit" value="Update">
+  </form>
+  </div>
+{% endblock proinfo %}
+    
+
+
+

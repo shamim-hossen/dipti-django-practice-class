@@ -1,0 +1,72 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+<style>
+    /* styles.css */
+
+/* Style for profile picture */
+.profile-picture {
+  width: 100px;
+}
+
+/* Style for buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Style for headings */
+h3 {
+  color: #333;
+}
+
+/* Style for paragraphs */
+p {
+  color: #666;
+}
+
+</style>
+<h3>Profile Picture</h3>
+<img src="/{{user.profile_picture}}" width="100px" alt="">
+<br> <br>
+<button><a href="{% url 'profileinfo' %}">Profile info</a></button>
+<button><a href="{% url 'basicprofile' %}">Basic info</a></button>
+<button><a href="{% url 'editprofile' %}">Edit Profile</a></button>
+<button><a href="{% url 'changepassword' %}">Change Password</a></button>
+
+
+{% if user.user_type == 'recruiter' %}
+<button><a href="{% url 'recruitercontact' %}">Recruiter contact info</a></button>
+<button><a href="{% url 'specificjobpost' %}">Recruiter posted job</a></button>
+
+{% elif user.user_type == 'seeker' %}
+
+<button><a href="{% url 'seekereducation' %}">Seeker education info</a></button>
+<button><a href="{% url 'seekerwork' %}">Seeker work info</a></button>
+{% endif %}
+  
+
+
+
+{% block proinfo %}
+    
+{% endblock proinfo %}
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

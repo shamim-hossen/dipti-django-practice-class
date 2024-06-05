@@ -1,0 +1,19 @@
+<ul>
+  
+  
+  
+  
+  <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+  
+  {% if user.user_type == 'recruiter' %}
+  
+  <li><a href="{% url 'addjob' %}">Add Job</a></li>
+  {% endif %}
+  
+  <li><a href="{% url 'viewjob' %}">View Job</a></li>
+
+    <li style="float:right"><a href="{% url 'logoutpage' %}">Logout</a></li>
+    <li style="float:right"><a class="active" href="{% url 'baseprofile' %}">Profile</a></li>
+  
+
+  </ul>

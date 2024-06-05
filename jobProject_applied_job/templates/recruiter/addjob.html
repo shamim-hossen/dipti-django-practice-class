@@ -1,0 +1,74 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Add Job</h3>
+
+<div>
+  <form action="{% url 'addjob' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="fname">Job title</label>
+    <input type="text" id="fname" name="job_title" required>
+    <label for="fname">Company description</label>
+    <input type="text" id="fname" name="company_description" required>
+    <label for="fname">Company logo</label>
+    <input type="file" id="fname" name="company_logo" required>
+    <br><br>
+    <label for="fname">Company name</label>
+    <input type="text" id="fname" name="company_name" required>
+    <label for="fname">Company location</label>
+    <input type="text" id="fname" name="company_location" required>
+    <label for="fname">Qualifications</label>
+    <input type="text" id="fname" name="qualifications" required>
+    <label for="fname">Deadline</label>
+    <input type="date" id="fname" name="deadline" required>
+    <br><br>
+    <label for="fname">Salary</label>
+    <input type="text" id="fname" name="salary" required>
+   
+    <input type="submit" value="Submit">
+</form>
+<a href="{% url 'signup' %}">Don't have an account?</a>
+</div>
+
+</body>
+</html>
+
+{% endblock content %}
+    
