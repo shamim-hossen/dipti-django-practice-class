@@ -6,15 +6,14 @@
 <style>
   /* Style for the messages */
   .message {
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  animation: slideIn 0.5s ease forwards;
-  display: flex; /* Add display flex */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
-
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease forwards;
+    display: flex; /* Add display flex */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
 
   /* Colors for different message types */
   .success {
@@ -49,6 +48,15 @@
     {% elif message.tags == 'warning' %}
       <p class="message warning">{{ message }}</p>
     {% endif %}
+    <script>
+      // JavaScript to remove the message after 3 seconds
+      setTimeout(function() {
+        var messageElement = document.querySelector('.message');
+        if (messageElement) {
+          messageElement.remove();
+        }
+      }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
   {% endfor %}
 {% endif %}
 
