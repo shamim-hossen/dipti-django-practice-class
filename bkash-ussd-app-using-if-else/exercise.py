@@ -99,4 +99,13 @@
 
 
 
+# Digit reverse
+def reverse_digits(number):
+    if number < 0:
+        return -int(str(-number)[::-1])  
+    else:
+        return int(str(number)[::-1]) 
 
+number = 12345
+reversed_number = reverse_digits(number)
+print("Reversed number:", reversed_number)
