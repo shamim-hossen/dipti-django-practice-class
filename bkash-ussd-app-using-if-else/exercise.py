@@ -109,3 +109,15 @@ def reverse_digits(number):
 number = 12345
 reversed_number = reverse_digits(number)
 print("Reversed number:", reversed_number)
+
+
+
+# Palindrome number
+def is_palindrome(number):
+    return str(number) == str(number)[::-1]
+
+number = 12321
+if is_palindrome(number):
+    print(f"{number} is a palindrome.")
+else:
+    print(f"{number} is not a palindrome.")
