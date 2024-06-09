@@ -121,3 +121,21 @@ if is_palindrome(number):
     print(f"{number} is a palindrome.")
 else:
     print(f"{number} is not a palindrome.")
+
+
+
+# Armstrong number
+def is_armstrong_number(number):
+    num_str = str(number)
+    power = len(num_str)
+    armstrong_sum = 0
+    
+    for digit in num_str:
+        armstrong_sum += int(digit) ** power
+    return armstrong_sum == number
+
+number = int(input("Enter a number: "))
+if is_armstrong_number(number):
+    print(number, "is an Armstrong number.")
+else:
+    print(number, "is not an Armstrong number.")
