@@ -139,3 +139,26 @@ if is_armstrong_number(number):
     print(number, "is an Armstrong number.")
 else:
     print(number, "is not an Armstrong number.")
+
+
+
+
+# Armstrong number series
+def is_armstrong(num):
+    num_str = str(num)
+    num_digits = len(num_str)
+    armstrong_sum = sum(int(digit) ** num_digits for digit in num_str)
+    return armstrong_sum == num
+
+def armstrong_numbers_in_range(start, end):
+    armstrong_nums = []
+    for num in range(start, end + 1):
+        if is_armstrong(num):
+            armstrong_nums.append(num)
+    return armstrong_nums
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+
+print("Armstrong numbers in the range", start, "to", end, "are:")
+print(armstrong_numbers_in_range(start, end))
