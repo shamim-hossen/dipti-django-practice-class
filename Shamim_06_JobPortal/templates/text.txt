@@ -1,0 +1,97 @@
+shamim123
+tansen123
+dipuray123
+
+Ro_Bin_Khan_123
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+home==apply btn
+=========================================
+jobs=JobModel.objects.all()
+
+for i in jobs
+	if request.user.user_type=='seeker'
+		apply btn
+
+
+postedjob=aplicant btn
+=========================================
+jobs=JobModel.objects.filter(user=request.user)
+url 'applicant_list' i.id
+
+
+
+
+applicant_list==Action(rejected,accepted)
+=========================================
+jobs=ApplyJob.objects.get(id=id)
+applicants=ApplyJob.objects.filter(job=job)
+
+for i in applicants
+	if i.status == 'pending'
+		<a href='{url 'reject' i.id}'>Rejected</a>
+		<a href='{url 'accept' i.id}'>accepted</a>
+		
+		
+		
+def accept(request,id):
+	apply=ApplyJob.objects.get(id=id)
+	apply.status='Accepted'
+	apply.save()
+	return redirect('applicant_list',id=apply.job.id)

@@ -1,0 +1,80 @@
+{% extends 'common/base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Card</title>
+<style>
+    /* Profile Card Styles */
+.profile-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.profile-card .profile-info {
+    padding: 20px;
+}
+
+.profile-card .profile-info h2,h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.profile-card .profile-info p {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.profile-card .profile-buttons {
+    padding: 10px;
+    text-align: center;
+}
+
+.profile-card .profile-buttons .btn {
+    padding: 8px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+}
+
+.profile-card .profile-buttons .btn:last-child {
+    margin-right: 0;
+}
+
+.profile-card .profile-buttons .btn:hover {
+    background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+
+<div class="profile-card">
+    <div class="profile-info">
+        <h2> {{user.display_name}} </h2>
+        <h4>User Type: {{user.get_user_type_display}} </h4>
+        <h4>Email: {{user.email}} </h4>
+    </div>
+    <div class="profile-buttons">
+    {% include 'profile/pronav.html' %}
+    </div>
+    
+    {% block probase %}
+        
+    {% endblock probase %}
+        
+</div>
+
+</body>
+</html>
+
+{% endblock content %}

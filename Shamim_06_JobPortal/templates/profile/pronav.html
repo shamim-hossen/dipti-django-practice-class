@@ -1,0 +1,8 @@
+<button  class="btn"><a href="{% url 'basicinfo' %}">Basic info</a></button>
+{% if user.user_type == 'seeker' %}
+<button  class="btn"><a href="{% url 'skillset' %}">Skill set</a></button>
+{% elif user.user_type == 'recruiter' %}
+<button class="btn"><a href="{% url 'companyinfo' %}">Company Information</a></button>
+<button class="btn"><a href="{% url 'postedjob' %}">Posted Job</a></button>
+{% endif %}
+

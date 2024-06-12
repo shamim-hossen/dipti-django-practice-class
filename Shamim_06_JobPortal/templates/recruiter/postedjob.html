@@ -1,0 +1,72 @@
+{% extends 'profile/profile.html' %}
+{% block probase %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .job-item {
+            margin-bottom: 20px;
+        }
+        .job-item h3 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Job Title</th>
+            <th>Job Description</th>
+            <th>Number of Openings</th>
+            <th>Category</th>
+            <th>Skill Sets</th>
+            <th>Created by</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in jobs %}
+        <tr>
+            <td>{{ i.job_title }}</td>
+            <td>{{ i.job_description }}</td>
+            <td>{{ i.number_of_openings }}</td>
+            <td>{{ i.category }}</td>
+            <td>{{ i.skill_sets }}</td>
+            <td>{{ i.created_by }}</td>
+            <td>{{ i.status }}</td>
+            <td>
+                
+                {% if i.status == 'Pending' %}
+                    <a href="{% url 'accepted' %}">Accepted</a>
+                    <a href="{% url 'rejected' %}">Rejected</a>
+                {% endif %}
+                    
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
+
+{% endblock probase %}

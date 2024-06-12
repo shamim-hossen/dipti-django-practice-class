@@ -1,0 +1,25 @@
+{% extends 'profile/profile.html' %}
+{% block probase %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Information</title>
+
+</head>
+<body>
+
+<div class="profile-content">
+    <h2>Company Information</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+{% endblock probase %}

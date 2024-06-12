@@ -1,0 +1,33 @@
+{% extends 'profile/profile.html' %}
+{% block probase %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Info</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>Basic Info</h3>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+
+    {% if user.user_type == 'seeker' %}
+    <p><strong>Skill Sets:</strong> {{ user.seekermodel.skill_sets }}</p>
+    <p><strong>Resume:</strong> <a href="{{ user.seekermodel.resume.url }}">{{ user.seekermodel.resume.url }}</a></p>
+    {% endif %}
+
+    {% if user.user_type == 'recruiter' %}
+    <p><strong>Company Name:</strong> {{ user.recruitermodel.company_name }}</p>
+    <p><strong>Company Description:</strong> {{ user.recruitermodel.company_description }}</p>
+    {% endif %}
+</div>
+</body>
+</html>
+
+{% endblock probase %}

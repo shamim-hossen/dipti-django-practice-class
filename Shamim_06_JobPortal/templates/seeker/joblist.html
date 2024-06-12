@@ -1,0 +1,75 @@
+{% extends 'common/base.html' %}
+{% block content %}
+<style>
+/* Job List View Styles */
+.job-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* padding: 10px; */
+    padding: 0 0 0 40px;
+    margin-bottom: 10px;
+}
+
+.job-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.job-item p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.job-item .buttons {
+    margin-top: 5px;
+}
+
+.job-item .buttons button {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.job-item .buttons button:last-child {
+    margin-right: 0;
+}
+
+.job-item .buttons button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<ul class="job-list">
+    {% for i in jobs %}
+    <li class="job-item">
+        <h3>Job Title: {{ i.job_title }}</h3>
+        <p>Job Description: {{ i.job_description }}</p>
+        <p>Number of Openings: {{ i.number_of_openings }}</p>
+        <p>Category: {{ i.category }}</p>
+        <p>Skill Sets: {{ i.skill_sets }}</p>
+        <p>Created by: {{ i.created_by }}</p>
+        
+        <div class="buttons">
+            {% if user.user_type == 'recruiter' and i.created_by == user %}
+                <button><a href="{% url 'deletejob' i.id %}">Delete</a></button>
+                <button><a href="{% url 'editjob' i.id %}">Edit</a></button>
+            {% elif user.user_type == 'seeker' %}
+                <button><a href="{% url 'applyjob' i.id  %}">Apply Job</a></button>
+            {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
