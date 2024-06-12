@@ -1,0 +1,88 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.date-field {
+    /* Add your CSS styles here */
+    /* For example: */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    /* Add any other styles you want */
+}
+
+/* Optional: You can style the date picker arrow icon */
+.date-field::-webkit-calendar-picker-indicator {
+    /* Add your CSS styles for the date picker arrow here */
+    /* For example: */
+    color: #999;
+    cursor: pointer;
+    /* Add any other styles you want */
+}
+.textarea-field {
+    /* Add your CSS styles here */
+    /* For example: */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    height: 70px; /* Set the desired height */
+    width: 100%; /* Set width to 100% */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    resize: vertical; /* Allow vertical resizing */
+    /* Add any other styles you want */
+}
+</style>
+<body>
+
+<div>
+  <form action="{% url 'edittask' task.id %}" method="POST">
+
+    {% csrf_token %}
+
+    {{form}}
+    <input type="submit" value="Update">
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock content %}
+    
