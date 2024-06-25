@@ -162,3 +162,11 @@ end = int(input("Enter the end of the range: "))
 
 print("Armstrong numbers in the range", start, "to", end, "are:")
 print(armstrong_numbers_in_range(start, end))
+
+
+# Right-Angled Triangle Pattern
+def right_angled_triangle_pattern(n):
+    for i in range(1, n + 1):
+        print('*' * i)
+
+right_angled_triangle_pattern(5)
