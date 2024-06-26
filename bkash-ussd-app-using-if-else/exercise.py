@@ -170,3 +170,11 @@ def right_angled_triangle_pattern(n):
         print('*' * i)
 
 right_angled_triangle_pattern(5)
+
+
+# Inverted Right-Angled Triangle Pattern
+def inverted_triangle_pattern(n):
+    for i in range(n, 0, -1):
+        print('*' * i)
+
+inverted_triangle_pattern(5)
