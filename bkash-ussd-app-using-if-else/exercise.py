@@ -178,3 +178,10 @@ def inverted_triangle_pattern(n):
         print('*' * i)
 
 inverted_triangle_pattern(5)
+
+# Pyramid Pattern
+def pyramid_pattern(n):
+    for i in range(n):
+        print(' ' * (n - i - 1) + '*' * (2 * i + 1))
+
+pyramid_pattern(5)
