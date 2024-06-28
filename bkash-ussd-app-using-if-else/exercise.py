@@ -185,3 +185,11 @@ def pyramid_pattern(n):
         print(' ' * (n - i - 1) + '*' * (2 * i + 1))
 
 pyramid_pattern(5)
+
+
+# Number Pyramid Pattern
+def number_pyramid_pattern(n):
+    for i in range(1, n + 1):
+        print(' ' * (n - i) + ' '.join(str(j) for j in range(1, i + 1)))
+
+number_pyramid_pattern(5)
