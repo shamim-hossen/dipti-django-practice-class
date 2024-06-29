@@ -193,3 +193,11 @@ def number_pyramid_pattern(n):
         print(' ' * (n - i) + ' '.join(str(j) for j in range(1, i + 1)))
 
 number_pyramid_pattern(5)
+
+
+# Digit reverse
+def reverse_digits(number):
+    return int(str(number)[::-1])
+
+print(reverse_digits(12345))  # Output: 54321
+print(reverse_digits(9876))   # Output: 6789
