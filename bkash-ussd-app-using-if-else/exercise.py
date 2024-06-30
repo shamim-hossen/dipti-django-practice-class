@@ -201,3 +201,16 @@ def reverse_digits(number):
 
 print(reverse_digits(12345))  # Output: 54321
 print(reverse_digits(9876))   # Output: 6789
+
+
+#  reverse the digits of a number in Python
+def reverse_digits(number):
+    return int(str(number)[::-1])
+print(reverse_digits(12345))  # Output: 54321
+print(reverse_digits(9876))   # Output: 6789
+
+# reverse a string in Python
+def reverse_string(s):
+    return s[::-1]
+print(reverse_string("hello"))  # Output: "olleh"
+print(reverse_string("Python")) # Output: "nohtyP"
