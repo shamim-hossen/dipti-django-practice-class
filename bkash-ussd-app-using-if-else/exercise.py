@@ -214,3 +214,16 @@ def reverse_string(s):
     return s[::-1]
 print(reverse_string("hello"))  # Output: "olleh"
 print(reverse_string("Python")) # Output: "nohtyP"
+
+
+# reverse the elements of a list in Python
+# Using the reverse() method
+def reverse_list(lst):
+    lst.reverse()
+    return lst
+# Using slicing
+def reverse_list_slicing(lst):
+    return lst[::-1]
+# Example usage
+print(reverse_list([1, 2, 3, 4, 5]))  # Output: [5, 4, 3, 2, 1]
+print(reverse_list_slicing([1, 2, 3, 4, 5]))  # Output: [5, 4, 3, 2, 1]
