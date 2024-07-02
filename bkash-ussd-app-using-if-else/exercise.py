@@ -227,3 +227,13 @@ def reverse_list_slicing(lst):
 # Example usage
 print(reverse_list([1, 2, 3, 4, 5]))  # Output: [5, 4, 3, 2, 1]
 print(reverse_list_slicing([1, 2, 3, 4, 5]))  # Output: [5, 4, 3, 2, 1]
+
+
+# reverse the words in a sentence in Python?
+def reverse_words(sentence):
+    words = sentence.split()
+    reversed_words = words[::-1]
+    return ' '.join(reversed_words)
+# Example usage
+print(reverse_words("hello world"))  # Output: "world hello"
+print(reverse_words("Python is fun")) # Output: "fun is Python"
