@@ -237,3 +237,9 @@ def reverse_words(sentence):
 # Example usage
 print(reverse_words("hello world"))  # Output: "world hello"
 print(reverse_words("Python is fun")) # Output: "fun is Python"
+
+
+# Counting Elements in a List
+my_list = [1, 2, 3, 2, 4, 2, 5]
+count_of_twos = my_list.count(2)
+print(count_of_twos)  # Output: 3
