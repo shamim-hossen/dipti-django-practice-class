@@ -243,3 +243,11 @@ print(reverse_words("Python is fun")) # Output: "fun is Python"
 my_list = [1, 2, 3, 2, 4, 2, 5]
 count_of_twos = my_list.count(2)
 print(count_of_twos)  # Output: 3
+
+
+# Remove Duplicate Characters from a String
+def remove_duplicates(s):
+    return ''.join(set(s))
+# Example usage
+print(remove_duplicates("hello"))   # Output: "helo"
+print(remove_duplicates("python"))  # Output: "phyton"
