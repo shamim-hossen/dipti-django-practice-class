@@ -251,3 +251,10 @@ def remove_duplicates(s):
 # Example usage
 print(remove_duplicates("hello"))   # Output: "helo"
 print(remove_duplicates("python"))  # Output: "phyton"
+
+# Count the Number of Words in a String
+def count_words(s):
+    words = s.split()
+    return len(words)
+print(count_words("Hello, how are you?"))  # Output: 4
+print(count_words("Python programming"))  # Output: 2
