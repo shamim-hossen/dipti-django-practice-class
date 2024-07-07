@@ -1,0 +1,17 @@
+<div class="topnav">
+    <a class="active" href="">Home</a>
+    
+    {% if user.user_type == 'recruiter' %}
+    <a href="{% url 'addjob' %}">Add job</a>
+    {% endif %}
+      
+    <a href="{% url 'joblist' %}">Job list</a>
+    <a href="">Profile</a>
+    <a href="{% url 'signout' %}">Log out</a>
+    <!-- <div class="search-container">
+      <form action="" method="GET">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div> -->
+</div>

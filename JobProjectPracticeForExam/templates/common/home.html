@@ -1,0 +1,7 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <h3>{{user}}</h3>
+    <h3>{{user.get_user_type_display}}</h3>
+{% endblock content %}
