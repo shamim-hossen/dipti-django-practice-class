@@ -1,0 +1,11 @@
+{% extends 'profile/profile.html' %}
+
+{% block proinfo %}
+    <h3>Company information</h3>
+    <h4>Company name:</h4>
+    <p>{{user.recruitermodel.company_name}}</p>
+    <h4>Company Address:</h4>
+    <p>{{user.recruitermodel.company_address}}</p>
+    <button><a href="{% url 'editrecruiterprofile' %}">update info</a></button>
+{% endblock proinfo %}
+    

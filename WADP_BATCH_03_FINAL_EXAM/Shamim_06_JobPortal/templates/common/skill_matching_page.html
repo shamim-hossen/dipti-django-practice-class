@@ -1,0 +1,25 @@
+{% extends 'common/base.html' %}
+
+{% block content%}
+
+<h2>Matched Jobs</h2>
+
+{% if matched_jobs %}
+    <ul>
+    {% for job, seeker in matched_jobs %}
+        <li>
+            <h3>{{ job.title }}</h3>
+            <p><strong>Category:</strong> {{ job.category }}</p>
+            <p><strong>Job Description:</strong> {{ job.job_description }}</p>
+            <p><strong>Recruiter:</strong> {{ job.created_by }}</p>
+            <p><strong>Seeker Skills:</strong> {{ seeker.skills }}</p>
+            <p><strong>Seeker Resume:</strong> <a href="{{ seeker.resume.url }}">Download Resume</a></p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No jobs matched with any seekers.</p>
+{% endif %}
+
+
+{% endblock content%}

@@ -1,0 +1,50 @@
+{% extends 'profile/profile.html' %}
+
+
+{% block proinfo %}
+<!DOCTYPE html>
+<html>
+<style>
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+</style>
+<body>
+
+<div>
+  <h3>Edit Company information</h3>
+  <form action="" method="POST">
+{% csrf_token %}
+<label for="fname">Company name:</label><br>
+<input type="text" id="fname" value="{{user.recruitermodel.company_name}}" name="company_name" ><br><br>
+<label for="fname">Company address:</label><br>
+<input type="text" id="fname" value="{{user.recruitermodel.company_address}}" name="company_address" ><br><br>
+
+
+    <input type="submit" value="Update">
+  </form>
+
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock proinfo %}
+    

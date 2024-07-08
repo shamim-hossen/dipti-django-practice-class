@@ -1,0 +1,49 @@
+{% extends 'profile/profile.html' %}
+
+
+{% block proinfo %}
+<!DOCTYPE html>
+<html>
+<style>
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+</style>
+<body>
+
+<div>
+  <h3>Edit Jobseeker information</h3>
+  <form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<label for="fname">Skills set:</label><br>
+<input type="text" id="fname" value="{{user.seekermodel.Skills}}" name="Skills" ><br><br>
+<label for="fname">Resume upload option:</label><br>
+<input type="file" id="fname" name="Resume"><br><br>
+
+    <input type="submit" value="Update">
+  </form>
+
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock proinfo %}
+    

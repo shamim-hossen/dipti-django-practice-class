@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+<table border="2px">
+    <tr>
+        <th>Job Title</th>
+        <th>Number of Openings</th>
+        <th>Category</th>
+        <th>Job Description</th>
+        <th>Skills</th>
+    </tr>
+    
+    {% if no_applied_jobs %}
+    <tr>
+        <td colspan="5" style='text-align:center'>No jobs applied till now.</td>
+    </tr>
+    {% else %}
+        {% for application in applied_job %}
+        <tr>
+            <td>{{ application.applied_job.Title }}</td>
+            <td>{{ application.applied_job.Number_openings }}</td>
+            <td>{{ application.applied_job.Category }}</td>
+            <td>{{ application.applied_job.Job_description }}</td>
+            <td>{{ application.applied_job.Skills }}</td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+{% endblock %}

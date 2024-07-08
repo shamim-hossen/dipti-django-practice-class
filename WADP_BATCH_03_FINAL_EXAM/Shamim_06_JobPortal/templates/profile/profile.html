@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+
+
+{% block content %}
+<style>
+.profile{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+</style>
+<div class="profile">
+    <h1>{{user.username}}</h1><br>
+{% include 'profile/profilenav.html' %}<hr>
+</div>
+{% block proinfo %}
+    
+{% endblock proinfo %}
+
+{% endblock content %}

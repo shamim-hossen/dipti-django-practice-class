@@ -1,0 +1,12 @@
+{% extends 'profile/profile.html' %}
+
+{% block proinfo %}
+    <h3>Jobseeker information</h3>
+    <h4>Skills set:</h4>
+    <p>{{user.seekermodel.Skills}}</p>
+    <h4>Resume upload:</h4>
+    <a href="/{{user.seekermodel.Resume}}" target="_blank" style='text-decoration:none'>Resume</a>
+    <br><br>
+    <button><a href="{% url 'editseekerprofile' %}">update info</a></button>
+{% endblock proinfo %}
+    
