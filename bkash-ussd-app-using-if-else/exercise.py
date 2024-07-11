@@ -258,3 +258,8 @@ def count_words(s):
     return len(words)
 print(count_words("Hello, how are you?"))  # Output: 4
 print(count_words("Python programming"))  # Output: 2
+
+
+# List Comprehensions a list of squares of numbers from 1 to 5
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # Output: [1, 4, 9, 16, 25]
