@@ -263,3 +263,14 @@ print(count_words("Python programming"))  # Output: 2
 # List Comprehensions a list of squares of numbers from 1 to 5
 squares = [x**2 for x in range(1, 6)]
 print(squares)  # Output: [1, 4, 9, 16, 25]
+
+
+# Removing Elements from a List
+my_list = [1, 2, 3, 4, 5]
+removed_element = my_list.pop()  # Removes and returns the last element
+print(my_list)  # Output: [1, 2, 3, 4]
+print(removed_element)  # Output: 5
+my_list.remove(2)  # Removes the first occurrence of 2
+print(my_list)  # Output: [1, 3, 4]
+del my_list[0]  # Deletes the element at index 0
+print(my_list)  # Output: [3, 4]
