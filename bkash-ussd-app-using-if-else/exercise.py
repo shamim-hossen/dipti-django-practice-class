@@ -265,6 +265,16 @@ squares = [x**2 for x in range(1, 6)]
 print(squares)  # Output: [1, 4, 9, 16, 25]
 
 
+# Adding Elements to a List
+my_list = [1, 2, 3]
+my_list.append(4)  # Adds 4 at the end
+print(my_list)  # Output: [1, 2, 3, 4]
+my_list.insert(1, 5)  # Inserts 5 at index 1
+print(my_list)  # Output: [1, 5, 2, 3, 4]
+
+
+
+
 # Removing Elements from a List
 my_list = [1, 2, 3, 4, 5]
 removed_element = my_list.pop()  # Removes and returns the last element
