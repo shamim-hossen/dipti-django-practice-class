@@ -1,3 +1,4 @@
+# box-sizing: border-box;//content er moddhe padding r boarder dhore,(except margin)
 def paginate(items, page_size, page_number):
     """
     Paginates a list of items.
