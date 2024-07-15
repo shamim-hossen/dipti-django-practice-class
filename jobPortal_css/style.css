@@ -1,0 +1,40 @@
+/*
+box-sizing: border-box;
+div content er moddhe padding r boarder dhore,(except margin)
+mane padding,border dile content bade r jaiga nei na, 
+content er moddhe padding,border dei
+*/
+
+/* ****CSS Units****
+pixel(px) =fixed
+percentage(%)= dynamic related to parent,coto hok boro hok, oi percentage jaiga nibe
+view-width(vw)= view screen er width,not depend to parent
+rem(rem)=by default 16px, depend root(body)
+EM(em)=by default 16px,related to parent
+*/
+
+/* ****CSS color****
+hexa=
+rgb=
+rgba=
+hsl=
+*/
+
+
+/* ****CSS flexbox****
+flex-containerProperties
+======================
+flex-direction
+flex-wrap
+justify-content
+align-items
+align-content
+
+flex-itemsProperties
+======================
+order
+flex=grow
+flex-shrink
+flex-basis
+align-self
+*/
