@@ -38,3 +38,47 @@ flex-shrink
 flex-basis
 align-self
 */
+
+/*
+****CSS Flexbox****
+
+Flex Container Properties
+======================
+display: flex;  Establishes the container as a flex container and enables the use of all the other flex properties 
+flex-direction: row;  Defines the direction of the main axis (row, row-reverse, column, column-reverse) 
+flex-wrap: nowrap; Controls whether the flex container is single-line or multi-line, and the direction of the cross-axis (nowrap, wrap, wrap-reverse) 
+justify-content: flex-start;  Aligns the flex items along the main axis (flex-start, flex-end, center, space-between, space-around, space-evenly) 
+align-items: stretch;  Aligns the flex items along the cross axis (flex-start, flex-end, center, baseline, stretch) 
+align-content: stretch;  Aligns the flex lines within the flex container when there is extra space on the cross axis (flex-start, flex-end, center, space-between, space-around, stretch) 
+
+Flex Item Properties
+======================
+order: 0;  Specifies the order in which the flex items appear within the flex container 
+flex-grow: 0;  Defines the ability of a flex item to grow if necessary (a number, default is 0) 
+flex-shrink: 1;  Defines the ability of a flex item to shrink if necessary (a number, default is 1) 
+flex-basis: auto;  Defines the default size of an element before the remaining space is distributed (a length or percentage, default is auto) 
+flex: 0 1 auto;  A shorthand for flex-grow, flex-shrink, and flex-basis combined (e.g., flex: 1 0 auto)
+align-self: auto; /* Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items (auto, flex-start, flex-end, center, baseline, stretch) 
+
+****CSS Grid****
+
+Grid Container Properties
+======================
+display: grid;  Establishes the container as a grid container and enables the use of all the other grid properties 
+grid-template-columns: 100px 100px;  Defines the number and sizes of the columns in the grid 
+grid-template-rows: 100px 100px;  Defines the number and sizes of the rows in the grid 
+grid-template-areas: "header header" "main aside" "footer footer";  Defines named grid areas for layout 
+grid-column-gap: 10px;  Specifies the width of the gap between columns 
+grid-row-gap: 10px;  Specifies the height of the gap between rows 
+gap: 10px 20px;  Shorthand for setting both row and column gaps 
+
+Grid Item Properties
+======================
+grid-column: 1 / span 2;  Specifies which column(s) an element should span within the grid 
+grid-row: 1 / span 2;  Specifies which row(s) an element should span within the grid 
+grid-area: header;  Specifies the grid area an element should occupy 
+justify-self: start;  Aligns a grid item inside a cell along the inline (row) axis (start, end, center, stretch) 
+align-self: start;  Aligns a grid item inside a cell along the block (column) axis (start, end, center, stretch) 
+justify-items: start;  Aligns all grid items inside their cells along the inline (row) axis (start, end, center, stretch) 
+align-items: start;  Aligns all grid items inside their cells along the block (column) axis (start, end, center, stretch) 
+*/
